@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.wsgi import WSGIMiddleware
@@ -61,6 +63,13 @@ app = FastAPI(
 # Revert: remove these 2 lines if compression causes issues.
 from fastapi.middleware.gzip import GZipMiddleware
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+# Read-only guard for public demo deployments. Registered before the routers so
+# it sees every request regardless of which router handles it.
+if settings.DEMO_MODE:
+    from app.core.demo_guard import ReadOnlyDemoMiddleware
+    app.add_middleware(ReadOnlyDemoMiddleware)
+    print("[INFO] DEMO_MODE enabled — API is read-only, orchestrator disabled.")
 
 # Add CORS middleware
 app.add_middleware(
@@ -231,60 +240,93 @@ def seed_demo_data():
 
 seed_admin_user()
 
-# Cleanup orphan Docker containers from previous crashes
-try:
-    from app.services.orchestrator.container_manager import cleanup_orphan_containers
-    cleanup_orphan_containers()
-except Exception as e:
-    print(f"[WARN] Orphan container cleanup failed (Docker may not be available): {e}")
+# Cleanup orphan Docker containers from previous crashes.
+# Skipped in demo mode: there is no Docker daemon to talk to, and the demo never
+# starts containers, so there is nothing to clean up.
+if not settings.DEMO_MODE:
+    try:
+        from app.services.orchestrator.container_manager import cleanup_orphan_containers
+        cleanup_orphan_containers()
+    except Exception as e:
+        print(f"[WARN] Orphan container cleanup failed (Docker may not be available): {e}")
 
 # --- Prometheus metrics ---
-try:
-    from app.services.metrics.metrics_exporter import setup_metrics, get_metrics_app
-    from app.services.metrics.container_stats_collector import ContainerStatsCollector
-    from app.services.metrics import set_stats_collector
+# Skipped in demo mode: no Prometheus scrapes the demo, and the stats collector
+# would otherwise spawn a background thread polling a Docker daemon that is absent.
+if not settings.DEMO_MODE:
+    try:
+        from app.services.metrics.metrics_exporter import setup_metrics, get_metrics_app
+        from app.services.metrics.container_stats_collector import ContainerStatsCollector
+        from app.services.metrics import set_stats_collector
 
-    setup_metrics()
+        setup_metrics()
 
-    # Refresh experiment metrics on each /metrics scrape
-    from starlette.middleware.base import BaseHTTPMiddleware
-    from starlette.requests import Request
-    from app.services.metrics.metrics_exporter import update_experiment_metrics
+        # Refresh experiment metrics on each /metrics scrape
+        from starlette.middleware.base import BaseHTTPMiddleware
+        from starlette.requests import Request
+        from app.services.metrics.metrics_exporter import update_experiment_metrics
 
-    class MetricsRefreshMiddleware(BaseHTTPMiddleware):
-        async def dispatch(self, request: Request, call_next):
-            if request.url.path.startswith("/metrics"):
-                db = SessionLocal()
-                try:
-                    update_experiment_metrics(db)
-                finally:
-                    db.close()
-            return await call_next(request)
+        class MetricsRefreshMiddleware(BaseHTTPMiddleware):
+            async def dispatch(self, request: Request, call_next):
+                if request.url.path.startswith("/metrics"):
+                    db = SessionLocal()
+                    try:
+                        update_experiment_metrics(db)
+                    finally:
+                        db.close()
+                return await call_next(request)
 
-    app.add_middleware(MetricsRefreshMiddleware)
+        app.add_middleware(MetricsRefreshMiddleware)
 
-    # Mount /metrics as WSGI sub-app (prometheus_client speaks WSGI)
-    app.mount("/metrics", WSGIMiddleware(get_metrics_app()))
+        # Mount /metrics as WSGI sub-app (prometheus_client speaks WSGI)
+        app.mount("/metrics", WSGIMiddleware(get_metrics_app()))
 
-    # Start background container stats collector and register singleton
-    _collector = ContainerStatsCollector()
-    set_stats_collector(_collector)
-    _collector.start()
-    print("[INFO] Prometheus metrics available at /metrics")
-except Exception as e:
-    print(f"[WARN] Metrics setup failed: {e}")
-
-
-@app.get("/")
-async def root():
-    return {
-        "message": "BatSim Web Portal API",
-        "version": "1.0.0",
-        "docs": "/docs",
-        "redoc": "/redoc",
-    }
+        # Start background container stats collector and register singleton
+        _collector = ContainerStatsCollector()
+        set_stats_collector(_collector)
+        _collector.start()
+        print("[INFO] Prometheus metrics available at /metrics")
+    except Exception as e:
+        print(f"[WARN] Metrics setup failed: {e}")
 
 
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+
+# --- Frontend ---------------------------------------------------------------
+# When a production SPA build is present the API serves it too, so a demo
+# deployment is one container instead of a separate API host and static host.
+# Registered last so /api/*, /docs and /health keep priority over the catch-all.
+_frontend_dist = Path(settings.FRONTEND_DIST_PATH)
+
+if _frontend_dist.is_dir():
+    from fastapi.responses import FileResponse
+
+    _index_file = _frontend_dist / "index.html"
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def serve_spa(full_path: str):
+        # Real build assets are returned directly; anything else is a
+        # client-side route, which React Router resolves from index.html.
+        candidate = (_frontend_dist / full_path).resolve()
+        if (
+            full_path
+            and _frontend_dist.resolve() in candidate.parents
+            and candidate.is_file()
+        ):
+            return FileResponse(candidate)
+        return FileResponse(_index_file)
+
+    print(f"[INFO] Serving frontend build from {_frontend_dist}")
+else:
+
+    @app.get("/")
+    async def root():
+        return {
+            "message": "BatSim Web Portal API",
+            "version": "1.0.0",
+            "docs": "/docs",
+            "redoc": "/redoc",
+        }

@@ -39,6 +39,17 @@ class Settings(BaseSettings):
     # Monitoring
     GRAFANA_URL: str = "http://localhost:3000"
 
+    # Read-only public demo. Enabling this serves the portal on an untrusted
+    # network, so the API refuses every mutating request, skips the
+    # Docker-dependent startup work (orphan cleanup, container stats collector)
+    # and does not expose /metrics. The orchestrator is unusable in this mode.
+    DEMO_MODE: bool = False
+
+    # Directory holding a production frontend build. When it exists the API
+    # also serves the SPA, so a demo deployment is a single container rather
+    # than a separate API host and static host.
+    FRONTEND_DIST_PATH: str = "./frontend_dist"
+
     # CORS
     BACKEND_CORS_ORIGINS: list = [
         "http://localhost:3000",
