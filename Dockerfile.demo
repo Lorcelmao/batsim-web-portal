@@ -1,0 +1,49 @@
+# Single-container image for the public read-only demo.
+#
+# The normal stack is three services (API, Vite dev server, plus Prometheus and
+# Grafana) and needs a Docker socket to run simulations. The demo exposes only
+# the analysis half: DEMO_MODE refuses every mutating request, the orchestrator
+# is never reached, and the API also serves the compiled SPA — so the whole
+# thing is one image with no database service and no mounted socket.
+#
+# Build:  docker build -f Dockerfile.demo -t batsim-portal-demo .
+# Run:    docker run -p 8000:8000 -e SECRET_KEY=$(openssl rand -hex 32) batsim-portal-demo
+
+# --- Stage 1: compile the SPA -------------------------------------------------
+FROM node:20-slim AS frontend
+
+WORKDIR /build
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
+# --- Stage 2: API + compiled SPA ---------------------------------------------
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend/ .
+COPY --from=frontend /build/dist ./frontend_dist
+
+# Pruned dataset built by scripts/build-demo-data.py. simulation_dir values in
+# the database are absolute container paths (/app/storage/experiments/<id>), so
+# the experiments must land exactly here.
+COPY demo-data/batsim.db ./batsim.db
+COPY demo-data/experiments ./storage/experiments
+
+ENV DEMO_MODE=true \
+    FRONTEND_DIST_PATH=./frontend_dist \
+    DATABASE_URL=sqlite:///./batsim.db \
+    STORAGE_PATH=./storage \
+    SIMULATION_DATA_PATH=./storage/experiments \
+    PYTHONUNBUFFERED=1
+
+EXPOSE 8000
+
+# No --reload: that is a development server. PORT is honoured because hosts such
+# as Render and Cloud Run assign it at runtime.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

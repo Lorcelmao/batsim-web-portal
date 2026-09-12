@@ -1,0 +1,3 @@
+Scheduler: Biased_fcfs ({})
+Simulation ran for: 0:00:05.269727
+Job submitted: 990 , scheduled: 990 , rejected: 0 , killed: 0 , changed: 0 , timeout: 32 , success 958 , complete: 990

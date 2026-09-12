@@ -1,0 +1,4 @@
+Scheduler: Easy_knn_inline ({})
+Generated prediction statistic to prediction-statistic.json
+Simulation ran for: 0:00:09.553237
+Job submitted: 972 , scheduled: 972 , rejected: 0 , killed: 0 , changed: 0 , timeout: 972 , success 0 , complete: 972

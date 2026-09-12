@@ -1,0 +1,375 @@
+[0.000000] [batsim/INFO] Workload 'w0' corresponds to workload file '/data/workload.json'.
+[0.000000] [batsim/INFO] Batsim version: commit d4d3411d81ffb97a61e866b3e200782aacb61ba4 (built by Nix from master branch)
+[0.000000] [workload/INFO] Loading JSON workload '/data/workload.json'...
+[0.000000] [workload/INFO] JSON workload parsed sucessfully. Read 40 jobs and 25 profiles.
+[0.000000] [workload/INFO] Checking workload validity...
+[0.000000] [workload/INFO] Workload seems to be valid.
+[0.000000] [workload/INFO] Removing unreferenced profiles from memory...
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'host/model' to 'ptask_L07'
+[0.000000] [batsim/INFO] Checking whether SMPI is used or not...
+[0.000000] [machines/INFO] Creating the machines from platform file '/data/platform.xml'...
+[0.000000] [platf_parse/INFO] You're using a v4.0 XML file (/data/platform.xml) while the current standard is v4.1 That's fine, the new version is backward compatible. 
+
+Use simgrid_update_xml to update your file automatically to get rid of this warning. This program is installed automatically with SimGrid, or available in the tools/ directory of the source archive.
+[0.000000] [xbt_cfg/INFO] Switching to the L07 model to handle parallel tasks.
+[0.000000] [machines/INFO] Looking for master host 'master_host'
+[0.000000] [machines/INFO] The machines have been created successfully. There are 16 computing machines.
+[0.000000] [batsim/INFO] Batsim's export prefix is '/data/out'.
+[0.000000] [batsim/INFO] The process 'workload_submitter_w0' has been created.
+[0.000000] [batsim/INFO] The process 'server' has been created.
+[master_host:Scheduler REQ-REP:(3) 0.000000] [network/INFO] Sending '{"now":0.000000,"events":[{"timestamp":0.000000,"type":"SIMULATION_BEGINS","data":{"nb_resources":16,"nb_compute_resources":16,"nb_storage_resources":0,"allow_compute_sharing":false,"allow_storage_sharing":true,"config":{"redis-enabled":false,"redis-hostname":"127.0.0.1","redis-port":6379,"redis-prefix":"default","profiles-forwarded-on-submission":false,"dynamic-jobs-enabled":false,"dynamic-jobs-acknowledged":false,"profile-reuse-enabled":false,"sched-config":"","forward-unknown-events":false},"compute_resources":[{"id":0,"name":"node-0","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":1,"name":"node-1","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":2,"name":"node-10","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":3,"name":"node-11","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":4,"name":"node-12","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":5,"name":"node-13","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":6,"name":"node-14","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":7,"name":"node-15","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":8,"name":"node-2","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":9,"name":"node-3","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":10,"name":"node-4","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":11,"name":"node-5","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":12,"name":"node-6","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":13,"name":"node-7","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":14,"name":"node-8","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":15,"name":"node-9","state":"idle","properties":{"role":""},"zone_properties":{}}],"storage_resources":[],"workloads":{"w0":"/data/workload.json"},"profiles":{"w0":{"delay_6":{"type":"delay","delay":6.000000},"delay_37":{"type":"delay","delay":37.000000},"delay_9":{"type":"delay","delay":9.000000},"delay_80":{"type":"delay","delay":80.000000},"delay_26":{"type":"delay","delay":26.000000},"delay_11":{"type":"delay","delay":11.000000},"delay_42":{"type":"delay","delay":42.000000},"delay_16":{"type":"delay","delay":16.000000},"delay_60":{"type":"delay","delay":60.000000},"ph_60":{"type":"parallel_homogeneous","cpu":60000000000.000000,"com":0},"delay_5":{"type":"delay","delay":5.000000},"delay_24":{"type":"delay","delay":24.000000},"ph_49":{"type":"parallel_homogeneous","cpu":49000000000.000000,"com":0},"delay_8":{"type":"delay","delay":8.000000},"delay_54":{"type":"delay","delay":54.000000},"delay_13":{"type":"delay","delay":13.000000},"delay_10":{"type":"delay","delay":10.000000},"delay_12":{"type":"delay","delay":12.000000},"delay_74":{"type":"delay","delay":74.000000},"delay_7":{"type":"delay","delay":7.000000},"delay_104":{"type":"delay","delay":104.000000},"ph_37":{"type":"parallel_homogeneous","cpu":37000000000.000000,"com":0},"delay_30":{"type":"delay","delay":30.000000},"delay_15":{"type":"delay","delay":15.000000},"ph_35":{"type":"parallel_homogeneous","cpu":35000000000.000000,"com":0}}}}}]}'
+[master_host:Scheduler REQ-REP:(3) 0.000000] [network/INFO] Received '{"now": 0.0, "events": []}'
+[master_host:server:(2) 2.960000] [server/INFO] Job w0!0 SUBMITTED. 1 jobs submitted so far
+[master_host:Scheduler REQ-REP:(4) 2.960000] [network/INFO] Sending '{"now":2.960000,"events":[{"timestamp":2.960000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!0","job":{"id":"w0!0","subtime":2.960000,"res":2,"walltime":18.000000,"profile":"delay_12"}}}]}'
+[master_host:Scheduler REQ-REP:(4) 2.960000] [network/INFO] Received '{"now": 2.96, "events": [{"timestamp": 2.96, "type": "EXECUTE_JOB", "data": {"job_id": "w0!0", "alloc": "0-1"}}]}'
+[node-0:job_w0!0:(5) 2.960000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 7.670000] [server/INFO] Job w0!1 SUBMITTED. 2 jobs submitted so far
+[master_host:Scheduler REQ-REP:(6) 7.670000] [network/INFO] Sending '{"now":7.670000,"events":[{"timestamp":7.670000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!1","job":{"id":"w0!1","subtime":7.670000,"res":2,"walltime":24.000000,"profile":"delay_16"}}}]}'
+[master_host:Scheduler REQ-REP:(6) 7.670000] [network/INFO] Received '{"now": 7.67, "events": [{"timestamp": 7.67, "type": "EXECUTE_JOB", "data": {"job_id": "w0!1", "alloc": "2-3"}}]}'
+[node-10:job_w0!1:(7) 7.670000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 9.320000] [server/INFO] Job w0!2 SUBMITTED. 3 jobs submitted so far
+[master_host:Scheduler REQ-REP:(8) 9.320000] [network/INFO] Sending '{"now":9.320000,"events":[{"timestamp":9.320000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!2","job":{"id":"w0!2","subtime":9.320000,"res":1,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(8) 9.320000] [network/INFO] Received '{"now": 9.32, "events": [{"timestamp": 9.32, "type": "EXECUTE_JOB", "data": {"job_id": "w0!2", "alloc": "4"}}]}'
+[node-12:job_w0!2:(9) 9.320000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 9.520000] [server/INFO] Job w0!3 SUBMITTED. 4 jobs submitted so far
+[master_host:Scheduler REQ-REP:(10) 9.520000] [network/INFO] Sending '{"now":9.520000,"events":[{"timestamp":9.520000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!3","job":{"id":"w0!3","subtime":9.520000,"res":5,"walltime":90.000000,"profile":"delay_60"}}}]}'
+[master_host:Scheduler REQ-REP:(10) 9.520000] [network/INFO] Received '{"now": 9.52, "events": [{"timestamp": 9.52, "type": "EXECUTE_JOB", "data": {"job_id": "w0!3", "alloc": "5-9"}}]}'
+[node-13:job_w0!3:(11) 9.520000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 10.960000] [server/INFO] Job w0!4 SUBMITTED. 5 jobs submitted so far
+[master_host:Scheduler REQ-REP:(12) 10.960000] [network/INFO] Sending '{"now":10.960000,"events":[{"timestamp":10.960000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!4","job":{"id":"w0!4","subtime":10.960000,"res":1,"walltime":8.000000,"profile":"delay_5"}}}]}'
+[master_host:Scheduler REQ-REP:(12) 10.960000] [network/INFO] Received '{"now": 10.96, "events": [{"timestamp": 10.96, "type": "EXECUTE_JOB", "data": {"job_id": "w0!4", "alloc": "10"}}]}'
+[node-4:job_w0!4:(13) 10.960000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!0:(5) 14.960000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!0:(5) 14.960000] [jobs_execution/INFO] Job 'w0!0' finished in time (success)
+[master_host:server:(2) 14.960000] [server/INFO] Job w0!0 has COMPLETED. 1 jobs completed so far
+[master_host:Scheduler REQ-REP:(14) 14.960000] [network/INFO] Sending '{"now":14.960000,"events":[{"timestamp":14.960000,"type":"JOB_COMPLETED","data":{"job_id":"w0!0","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-1"}}]}'
+[master_host:Scheduler REQ-REP:(14) 14.960000] [network/INFO] Received '{"now": 14.96, "events": []}'
+[node-4:job_w0!4:(13) 15.960000] [jobs_execution/INFO] Sleeping done
+[node-4:job_w0!4:(13) 15.960000] [jobs_execution/INFO] Job 'w0!4' finished in time (success)
+[master_host:server:(2) 15.960000] [server/INFO] Job w0!4 has COMPLETED. 2 jobs completed so far
+[master_host:Scheduler REQ-REP:(15) 15.960000] [network/INFO] Sending '{"now":15.960000,"events":[{"timestamp":15.960000,"type":"JOB_COMPLETED","data":{"job_id":"w0!4","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"10"}}]}'
+[master_host:Scheduler REQ-REP:(15) 15.960000] [network/INFO] Received '{"now": 15.96, "events": []}'
+[node-12:job_w0!2:(9) 16.320000] [jobs_execution/INFO] Sleeping done
+[node-12:job_w0!2:(9) 16.320000] [jobs_execution/INFO] Job 'w0!2' finished in time (success)
+[master_host:server:(2) 16.320000] [server/INFO] Job w0!2 has COMPLETED. 3 jobs completed so far
+[master_host:Scheduler REQ-REP:(16) 16.320000] [network/INFO] Sending '{"now":16.320000,"events":[{"timestamp":16.320000,"type":"JOB_COMPLETED","data":{"job_id":"w0!2","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"4"}}]}'
+[master_host:Scheduler REQ-REP:(16) 16.320000] [network/INFO] Received '{"now": 16.32, "events": []}'
+[node-10:job_w0!1:(7) 23.670000] [jobs_execution/INFO] Sleeping done
+[node-10:job_w0!1:(7) 23.670000] [jobs_execution/INFO] Job 'w0!1' finished in time (success)
+[master_host:server:(2) 23.670000] [server/INFO] Job w0!1 has COMPLETED. 4 jobs completed so far
+[master_host:Scheduler REQ-REP:(17) 23.670000] [network/INFO] Sending '{"now":23.670000,"events":[{"timestamp":23.670000,"type":"JOB_COMPLETED","data":{"job_id":"w0!1","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"2-3"}}]}'
+[master_host:Scheduler REQ-REP:(17) 23.670000] [network/INFO] Received '{"now": 23.67, "events": []}'
+[master_host:server:(2) 27.610000] [server/INFO] Job w0!5 SUBMITTED. 6 jobs submitted so far
+[master_host:Scheduler REQ-REP:(18) 27.610000] [network/INFO] Sending '{"now":27.610000,"events":[{"timestamp":27.610000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!5","job":{"id":"w0!5","subtime":27.610000,"res":2,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(18) 27.610000] [network/INFO] Received '{"now": 27.61, "events": [{"timestamp": 27.61, "type": "EXECUTE_JOB", "data": {"job_id": "w0!5", "alloc": "0-1"}}]}'
+[node-0:job_w0!5:(19) 27.610000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 29.870000] [server/INFO] Job w0!6 SUBMITTED. 7 jobs submitted so far
+[master_host:Scheduler REQ-REP:(20) 29.870000] [network/INFO] Sending '{"now":29.870000,"events":[{"timestamp":29.870000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!6","job":{"id":"w0!6","subtime":29.870000,"res":4,"walltime":81.000000,"profile":"delay_54"}}}]}'
+[master_host:Scheduler REQ-REP:(20) 29.870000] [network/INFO] Received '{"now": 29.87, "events": [{"timestamp": 29.87, "type": "EXECUTE_JOB", "data": {"job_id": "w0!6", "alloc": "2-4 10"}}]}'
+[node-10:job_w0!6:(21) 29.870000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!5:(19) 34.610000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!5:(19) 34.610000] [jobs_execution/INFO] Job 'w0!5' finished in time (success)
+[master_host:server:(2) 34.610000] [server/INFO] Job w0!5 has COMPLETED. 5 jobs completed so far
+[master_host:Scheduler REQ-REP:(22) 34.610000] [network/INFO] Sending '{"now":34.610000,"events":[{"timestamp":34.610000,"type":"JOB_COMPLETED","data":{"job_id":"w0!5","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-1"}}]}'
+[master_host:Scheduler REQ-REP:(22) 34.610000] [network/INFO] Received '{"now": 34.61, "events": []}'
+[master_host:server:(2) 40.500000] [server/INFO] Job w0!7 SUBMITTED. 8 jobs submitted so far
+[master_host:Scheduler REQ-REP:(23) 40.500000] [network/INFO] Sending '{"now":40.500000,"events":[{"timestamp":40.500000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!7","job":{"id":"w0!7","subtime":40.500000,"res":5,"walltime":56.000000,"profile":"ph_37"}}}]}'
+[master_host:Scheduler REQ-REP:(23) 40.500000] [network/INFO] Received '{"now": 40.5, "events": [{"timestamp": 40.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!7", "alloc": "0-1 11-13"}}]}'
+[master_host:server:(2) 46.420000] [server/INFO] Job w0!8 SUBMITTED. 9 jobs submitted so far
+[master_host:Scheduler REQ-REP:(25) 46.420000] [network/INFO] Sending '{"now":46.420000,"events":[{"timestamp":46.420000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!8","job":{"id":"w0!8","subtime":46.420000,"res":1,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(25) 46.420000] [network/INFO] Received '{"now": 46.42, "events": [{"timestamp": 46.42, "type": "EXECUTE_JOB", "data": {"job_id": "w0!8", "alloc": "14"}}]}'
+[node-8:job_w0!8:(26) 46.420000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 46.450000] [server/INFO] Job w0!9 SUBMITTED. 10 jobs submitted so far
+[master_host:Scheduler REQ-REP:(27) 46.450000] [network/INFO] Sending '{"now":46.450000,"events":[{"timestamp":46.450000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!9","job":{"id":"w0!9","subtime":46.450000,"res":1,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(27) 46.450000] [network/INFO] Received '{"now": 46.45, "events": [{"timestamp": 46.45, "type": "EXECUTE_JOB", "data": {"job_id": "w0!9", "alloc": "15"}}]}'
+[node-9:job_w0!9:(28) 46.450000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 50.280000] [server/INFO] Job w0!10 SUBMITTED. 11 jobs submitted so far
+[master_host:Scheduler REQ-REP:(29) 50.280000] [network/INFO] Sending '{"now":50.280000,"events":[{"timestamp":50.280000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!10","job":{"id":"w0!10","subtime":50.280000,"res":12,"walltime":156.000000,"profile":"delay_104"}}}]}'
+[master_host:Scheduler REQ-REP:(29) 50.280000] [network/INFO] Received '{"now": 50.28, "events": []}'
+[node-8:job_w0!8:(26) 53.420000] [jobs_execution/INFO] Sleeping done
+[node-8:job_w0!8:(26) 53.420000] [jobs_execution/INFO] Job 'w0!8' finished in time (success)
+[master_host:server:(2) 53.420000] [server/INFO] Job w0!8 has COMPLETED. 6 jobs completed so far
+[master_host:Scheduler REQ-REP:(30) 53.420000] [network/INFO] Sending '{"now":53.420000,"events":[{"timestamp":53.420000,"type":"JOB_COMPLETED","data":{"job_id":"w0!8","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"14"}}]}'
+[master_host:Scheduler REQ-REP:(30) 53.420000] [network/INFO] Received '{"now": 53.42, "events": []}'
+[node-9:job_w0!9:(28) 53.450000] [jobs_execution/INFO] Sleeping done
+[node-9:job_w0!9:(28) 53.450000] [jobs_execution/INFO] Job 'w0!9' finished in time (success)
+[master_host:server:(2) 53.450000] [server/INFO] Job w0!9 has COMPLETED. 7 jobs completed so far
+[master_host:Scheduler REQ-REP:(31) 53.450000] [network/INFO] Sending '{"now":53.450000,"events":[{"timestamp":53.450000,"type":"JOB_COMPLETED","data":{"job_id":"w0!9","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"15"}}]}'
+[master_host:Scheduler REQ-REP:(31) 53.450000] [network/INFO] Received '{"now": 53.45, "events": []}'
+[master_host:server:(2) 53.710000] [server/INFO] Job w0!11 SUBMITTED. 12 jobs submitted so far
+[master_host:Scheduler REQ-REP:(32) 53.710000] [network/INFO] Sending '{"now":53.710000,"events":[{"timestamp":53.710000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!11","job":{"id":"w0!11","subtime":53.710000,"res":12,"walltime":111.000000,"profile":"delay_74"}}}]}'
+[master_host:Scheduler REQ-REP:(32) 53.710000] [network/INFO] Received '{"now": 53.71, "events": []}'
+[master_host:server:(2) 56.020000] [server/INFO] Job w0!12 SUBMITTED. 13 jobs submitted so far
+[master_host:Scheduler REQ-REP:(33) 56.020000] [network/INFO] Sending '{"now":56.020000,"events":[{"timestamp":56.020000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!12","job":{"id":"w0!12","subtime":56.020000,"res":5,"walltime":45.000000,"profile":"delay_30"}}}]}'
+[master_host:Scheduler REQ-REP:(33) 56.020000] [network/INFO] Received '{"now": 56.02, "events": []}'
+[master_host:server:(2) 56.960000] [server/INFO] Job w0!13 SUBMITTED. 14 jobs submitted so far
+[master_host:Scheduler REQ-REP:(34) 56.960000] [network/INFO] Sending '{"now":56.960000,"events":[{"timestamp":56.960000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!13","job":{"id":"w0!13","subtime":56.960000,"res":1,"walltime":23.000000,"profile":"delay_15"}}}]}'
+[master_host:Scheduler REQ-REP:(34) 56.960000] [network/INFO] Received '{"now": 56.96, "events": []}'
+[master_host:server:(2) 60.030000] [server/INFO] Job w0!14 SUBMITTED. 15 jobs submitted so far
+[master_host:Scheduler REQ-REP:(35) 60.030000] [network/INFO] Sending '{"now":60.030000,"events":[{"timestamp":60.030000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!14","job":{"id":"w0!14","subtime":60.030000,"res":6,"walltime":53.000000,"profile":"ph_35"}}}]}'
+[master_host:Scheduler REQ-REP:(35) 60.030000] [network/INFO] Received '{"now": 60.03, "events": []}'
+[master_host:server:(2) 60.380000] [server/INFO] Job w0!15 SUBMITTED. 16 jobs submitted so far
+[master_host:Scheduler REQ-REP:(36) 60.380000] [network/INFO] Sending '{"now":60.380000,"events":[{"timestamp":60.380000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!15","job":{"id":"w0!15","subtime":60.380000,"res":2,"walltime":20.000000,"profile":"delay_13"}}}]}'
+[master_host:Scheduler REQ-REP:(36) 60.380000] [network/INFO] Received '{"now": 60.38, "events": []}'
+[master_host:server:(2) 62.100000] [server/INFO] Job w0!16 SUBMITTED. 17 jobs submitted so far
+[master_host:Scheduler REQ-REP:(37) 62.100000] [network/INFO] Sending '{"now":62.100000,"events":[{"timestamp":62.100000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!16","job":{"id":"w0!16","subtime":62.100000,"res":2,"walltime":23.000000,"profile":"delay_15"}}}]}'
+[master_host:Scheduler REQ-REP:(37) 62.100000] [network/INFO] Received '{"now": 62.1, "events": []}'
+[master_host:server:(2) 63.910000] [server/INFO] Job w0!17 SUBMITTED. 18 jobs submitted so far
+[master_host:Scheduler REQ-REP:(38) 63.910000] [network/INFO] Sending '{"now":63.910000,"events":[{"timestamp":63.910000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!17","job":{"id":"w0!17","subtime":63.910000,"res":5,"walltime":63.000000,"profile":"delay_42"}}}]}'
+[master_host:Scheduler REQ-REP:(38) 63.910000] [network/INFO] Received '{"now": 63.91, "events": []}'
+[node-13:job_w0!3:(11) 69.520000] [jobs_execution/INFO] Sleeping done
+[node-13:job_w0!3:(11) 69.520000] [jobs_execution/INFO] Job 'w0!3' finished in time (success)
+[master_host:server:(2) 69.520000] [server/INFO] Job w0!3 has COMPLETED. 8 jobs completed so far
+[master_host:Scheduler REQ-REP:(39) 69.520000] [network/INFO] Sending '{"now":69.520000,"events":[{"timestamp":69.520000,"type":"JOB_COMPLETED","data":{"job_id":"w0!3","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"5-9"}}]}'
+[master_host:Scheduler REQ-REP:(39) 69.520000] [network/INFO] Received '{"now": 69.52, "events": []}'
+[master_host:server:(2) 73.130000] [server/INFO] Job w0!18 SUBMITTED. 19 jobs submitted so far
+[master_host:Scheduler REQ-REP:(40) 73.130000] [network/INFO] Sending '{"now":73.130000,"events":[{"timestamp":73.130000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!18","job":{"id":"w0!18","subtime":73.130000,"res":1,"walltime":17.000000,"profile":"delay_11"}}}]}'
+[master_host:Scheduler REQ-REP:(40) 73.130000] [network/INFO] Received '{"now": 73.13, "events": []}'
+[node-0:job_w0!7:(24) 77.500000] [jobs_execution/INFO] Job 'w0!7' finished in time (success)
+[master_host:server:(2) 77.500000] [server/INFO] Job w0!7 has COMPLETED. 9 jobs completed so far
+[master_host:Scheduler REQ-REP:(41) 77.500000] [network/INFO] Sending '{"now":77.500000,"events":[{"timestamp":77.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!7","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-1 11-13"}}]}'
+[master_host:Scheduler REQ-REP:(41) 77.500000] [network/INFO] Received '{"now": 77.5, "events": [{"timestamp": 77.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!10", "alloc": "0-1 5-9 11-15"}}]}'
+[node-0:job_w0!10:(42) 77.500000] [jobs_execution/INFO] Sleeping the whole task length
+[master_host:server:(2) 79.390000] [server/INFO] Job w0!19 SUBMITTED. 20 jobs submitted so far
+[master_host:Scheduler REQ-REP:(43) 79.390000] [network/INFO] Sending '{"now":79.390000,"events":[{"timestamp":79.390000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!19","job":{"id":"w0!19","subtime":79.390000,"res":2,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(43) 79.390000] [network/INFO] Received '{"now": 79.39, "events": []}'
+[master_host:server:(2) 80.310000] [server/INFO] Job w0!20 SUBMITTED. 21 jobs submitted so far
+[master_host:Scheduler REQ-REP:(44) 80.310000] [network/INFO] Sending '{"now":80.310000,"events":[{"timestamp":80.310000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!20","job":{"id":"w0!20","subtime":80.310000,"res":2,"walltime":18.000000,"profile":"delay_12"}}}]}'
+[master_host:Scheduler REQ-REP:(44) 80.310000] [network/INFO] Received '{"now": 80.31, "events": []}'
+[master_host:server:(2) 82.390000] [server/INFO] Job w0!21 SUBMITTED. 22 jobs submitted so far
+[master_host:Scheduler REQ-REP:(45) 82.390000] [network/INFO] Sending '{"now":82.390000,"events":[{"timestamp":82.390000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!21","job":{"id":"w0!21","subtime":82.390000,"res":6,"walltime":90.000000,"profile":"ph_60"}}}]}'
+[master_host:Scheduler REQ-REP:(45) 82.390000] [network/INFO] Received '{"now": 82.39, "events": []}'
+[master_host:server:(2) 82.980000] [server/INFO] Job w0!22 SUBMITTED. 23 jobs submitted so far
+[master_host:Scheduler REQ-REP:(46) 82.980000] [network/INFO] Sending '{"now":82.980000,"events":[{"timestamp":82.980000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!22","job":{"id":"w0!22","subtime":82.980000,"res":1,"walltime":11.000000,"profile":"delay_7"}}}]}'
+[master_host:Scheduler REQ-REP:(46) 82.980000] [network/INFO] Received '{"now": 82.98, "events": []}'
+[node-10:job_w0!6:(21) 83.870000] [jobs_execution/INFO] Sleeping done
+[node-10:job_w0!6:(21) 83.870000] [jobs_execution/INFO] Job 'w0!6' finished in time (success)
+[master_host:server:(2) 83.870000] [server/INFO] Job w0!6 has COMPLETED. 10 jobs completed so far
+[master_host:Scheduler REQ-REP:(47) 83.870000] [network/INFO] Sending '{"now":83.870000,"events":[{"timestamp":83.870000,"type":"JOB_COMPLETED","data":{"job_id":"w0!6","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"2-4 10"}}]}'
+[master_host:Scheduler REQ-REP:(47) 83.870000] [network/INFO] Received '{"now": 83.87, "events": []}'
+[master_host:server:(2) 90.300000] [server/INFO] Job w0!23 SUBMITTED. 24 jobs submitted so far
+[master_host:Scheduler REQ-REP:(48) 90.300000] [network/INFO] Sending '{"now":90.300000,"events":[{"timestamp":90.300000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!23","job":{"id":"w0!23","subtime":90.300000,"res":4,"walltime":39.000000,"profile":"delay_26"}}}]}'
+[master_host:Scheduler REQ-REP:(48) 90.300000] [network/INFO] Received '{"now": 90.3, "events": []}'
+[master_host:server:(2) 96.430000] [server/INFO] Job w0!24 SUBMITTED. 25 jobs submitted so far
+[master_host:Scheduler REQ-REP:(49) 96.430000] [network/INFO] Sending '{"now":96.430000,"events":[{"timestamp":96.430000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!24","job":{"id":"w0!24","subtime":96.430000,"res":12,"walltime":120.000000,"profile":"delay_80"}}}]}'
+[master_host:Scheduler REQ-REP:(49) 96.430000] [network/INFO] Received '{"now": 96.43, "events": []}'
+[master_host:server:(2) 97.490000] [server/INFO] Job w0!25 SUBMITTED. 26 jobs submitted so far
+[master_host:Scheduler REQ-REP:(50) 97.490000] [network/INFO] Sending '{"now":97.490000,"events":[{"timestamp":97.490000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!25","job":{"id":"w0!25","subtime":97.490000,"res":10,"walltime":111.000000,"profile":"delay_74"}}}]}'
+[master_host:Scheduler REQ-REP:(50) 97.490000] [network/INFO] Received '{"now": 97.49, "events": []}'
+[master_host:server:(2) 100.550000] [server/INFO] Job w0!26 SUBMITTED. 27 jobs submitted so far
+[master_host:Scheduler REQ-REP:(51) 100.550000] [network/INFO] Sending '{"now":100.550000,"events":[{"timestamp":100.550000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!26","job":{"id":"w0!26","subtime":100.550000,"res":2,"walltime":14.000000,"profile":"delay_9"}}}]}'
+[master_host:Scheduler REQ-REP:(51) 100.550000] [network/INFO] Received '{"now": 100.55, "events": []}'
+[master_host:server:(2) 103.370000] [server/INFO] Job w0!27 SUBMITTED. 28 jobs submitted so far
+[master_host:Scheduler REQ-REP:(52) 103.370000] [network/INFO] Sending '{"now":103.370000,"events":[{"timestamp":103.370000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!27","job":{"id":"w0!27","subtime":103.370000,"res":2,"walltime":12.000000,"profile":"delay_8"}}}]}'
+[master_host:Scheduler REQ-REP:(52) 103.370000] [network/INFO] Received '{"now": 103.37, "events": []}'
+[master_host:server:(2) 103.860000] [server/INFO] Job w0!28 SUBMITTED. 29 jobs submitted so far
+[master_host:Scheduler REQ-REP:(53) 103.860000] [network/INFO] Sending '{"now":103.860000,"events":[{"timestamp":103.860000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!28","job":{"id":"w0!28","subtime":103.860000,"res":4,"walltime":74.000000,"profile":"ph_49"}}}]}'
+[master_host:Scheduler REQ-REP:(53) 103.860000] [network/INFO] Received '{"now": 103.86, "events": []}'
+[master_host:server:(2) 108.180000] [server/INFO] Job w0!29 SUBMITTED. 30 jobs submitted so far
+[master_host:Scheduler REQ-REP:(54) 108.180000] [network/INFO] Sending '{"now":108.180000,"events":[{"timestamp":108.180000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!29","job":{"id":"w0!29","subtime":108.180000,"res":6,"walltime":36.000000,"profile":"delay_24"}}}]}'
+[master_host:Scheduler REQ-REP:(54) 108.180000] [network/INFO] Received '{"now": 108.18, "events": []}'
+[master_host:server:(2) 110.500000] [server/INFO] Job w0!30 SUBMITTED. 31 jobs submitted so far
+[master_host:Scheduler REQ-REP:(55) 110.500000] [network/INFO] Sending '{"now":110.500000,"events":[{"timestamp":110.500000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!30","job":{"id":"w0!30","subtime":110.500000,"res":1,"walltime":15.000000,"profile":"delay_10"}}}]}'
+[master_host:Scheduler REQ-REP:(55) 110.500000] [network/INFO] Received '{"now": 110.5, "events": []}'
+[master_host:server:(2) 115.030000] [server/INFO] Job w0!31 SUBMITTED. 32 jobs submitted so far
+[master_host:Scheduler REQ-REP:(56) 115.030000] [network/INFO] Sending '{"now":115.030000,"events":[{"timestamp":115.030000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!31","job":{"id":"w0!31","subtime":115.030000,"res":1,"walltime":18.000000,"profile":"delay_12"}}}]}'
+[master_host:Scheduler REQ-REP:(56) 115.030000] [network/INFO] Received '{"now": 115.03, "events": []}'
+[master_host:server:(2) 117.290000] [server/INFO] Job w0!32 SUBMITTED. 33 jobs submitted so far
+[master_host:server:(2) 117.290000] [server/INFO] Job w0!33 SUBMITTED. 34 jobs submitted so far
+[master_host:Scheduler REQ-REP:(57) 117.290000] [network/INFO] Sending '{"now":117.290000,"events":[{"timestamp":117.290000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!32","job":{"id":"w0!32","subtime":117.290000,"res":2,"walltime":12.000000,"profile":"delay_8"}}},{"timestamp":117.290000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!33","job":{"id":"w0!33","subtime":117.290000,"res":4,"walltime":56.000000,"profile":"delay_37"}}}]}'
+[master_host:Scheduler REQ-REP:(57) 117.290000] [network/INFO] Received '{"now": 117.29, "events": []}'
+[master_host:server:(2) 118.470000] [server/INFO] Job w0!34 SUBMITTED. 35 jobs submitted so far
+[master_host:Scheduler REQ-REP:(58) 118.470000] [network/INFO] Sending '{"now":118.470000,"events":[{"timestamp":118.470000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!34","job":{"id":"w0!34","subtime":118.470000,"res":1,"walltime":18.000000,"profile":"delay_12"}}}]}'
+[master_host:Scheduler REQ-REP:(58) 118.470000] [network/INFO] Received '{"now": 118.47, "events": []}'
+[master_host:server:(2) 118.530000] [server/INFO] Job w0!35 SUBMITTED. 36 jobs submitted so far
+[master_host:Scheduler REQ-REP:(59) 118.530000] [network/INFO] Sending '{"now":118.530000,"events":[{"timestamp":118.530000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!35","job":{"id":"w0!35","subtime":118.530000,"res":2,"walltime":9.000000,"profile":"delay_6"}}}]}'
+[master_host:Scheduler REQ-REP:(59) 118.530000] [network/INFO] Received '{"now": 118.53, "events": []}'
+[master_host:server:(2) 126.470000] [server/INFO] Job w0!36 SUBMITTED. 37 jobs submitted so far
+[master_host:Scheduler REQ-REP:(60) 126.470000] [network/INFO] Sending '{"now":126.470000,"events":[{"timestamp":126.470000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!36","job":{"id":"w0!36","subtime":126.470000,"res":2,"walltime":9.000000,"profile":"delay_6"}}}]}'
+[master_host:Scheduler REQ-REP:(60) 126.470000] [network/INFO] Received '{"now": 126.47, "events": []}'
+[master_host:server:(2) 132.800000] [server/INFO] Job w0!37 SUBMITTED. 38 jobs submitted so far
+[master_host:Scheduler REQ-REP:(61) 132.800000] [network/INFO] Sending '{"now":132.800000,"events":[{"timestamp":132.800000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!37","job":{"id":"w0!37","subtime":132.800000,"res":5,"walltime":56.000000,"profile":"delay_37"}}}]}'
+[master_host:Scheduler REQ-REP:(61) 132.800000] [network/INFO] Received '{"now": 132.8, "events": []}'
+[master_host:server:(2) 138.140000] [server/INFO] Job w0!38 SUBMITTED. 39 jobs submitted so far
+[master_host:Scheduler REQ-REP:(62) 138.140000] [network/INFO] Sending '{"now":138.140000,"events":[{"timestamp":138.140000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!38","job":{"id":"w0!38","subtime":138.140000,"res":2,"walltime":24.000000,"profile":"delay_16"}}}]}'
+[master_host:Scheduler REQ-REP:(62) 138.140000] [network/INFO] Received '{"now": 138.14, "events": []}'
+[master_host:server:(2) 139.240000] [server/INFO] Job w0!39 SUBMITTED. 40 jobs submitted so far
+[master_host:Scheduler REQ-REP:(63) 139.240000] [network/INFO] Sending '{"now":139.240000,"events":[{"timestamp":139.240000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!39","job":{"id":"w0!39","subtime":139.240000,"res":1,"walltime":14.000000,"profile":"delay_9"}}}]}'
+[master_host:Scheduler REQ-REP:(63) 139.240000] [network/INFO] Received '{"now": 139.24, "events": []}'
+[master_host:Scheduler REQ-REP:(64) 139.240000] [network/INFO] Sending '{"now":139.240000,"events":[{"timestamp":139.240000,"type":"NOTIFY","data":{"type":"no_more_static_job_to_submit"}}]}'
+[master_host:Scheduler REQ-REP:(64) 139.240000] [network/INFO] Received '{"now": 139.24, "events": []}'
+[node-0:job_w0!10:(42) 181.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!10:(42) 181.500000] [jobs_execution/INFO] Job 'w0!10' finished in time (success)
+[master_host:server:(2) 181.500000] [server/INFO] Job w0!10 has COMPLETED. 11 jobs completed so far
+[master_host:Scheduler REQ-REP:(65) 181.500000] [network/INFO] Sending '{"now":181.500000,"events":[{"timestamp":181.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!10","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-1 5-9 11-15"}}]}'
+[master_host:Scheduler REQ-REP:(65) 181.500000] [network/INFO] Received '{"now": 181.5, "events": [{"timestamp": 181.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!11", "alloc": "0-11"}}]}'
+[node-0:job_w0!11:(66) 181.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!11:(66) 255.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!11:(66) 255.500000] [jobs_execution/INFO] Job 'w0!11' finished in time (success)
+[master_host:server:(2) 255.500000] [server/INFO] Job w0!11 has COMPLETED. 12 jobs completed so far
+[master_host:Scheduler REQ-REP:(67) 255.500000] [network/INFO] Sending '{"now":255.500000,"events":[{"timestamp":255.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!11","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-11"}}]}'
+[master_host:Scheduler REQ-REP:(67) 255.500000] [network/INFO] Received '{"now": 255.5, "events": [{"timestamp": 255.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!12", "alloc": "0-4"}}, {"timestamp": 255.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!13", "alloc": "5"}}, {"timestamp": 255.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!14", "alloc": "6-11"}}, {"timestamp": 255.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!15", "alloc": "12-13"}}, {"timestamp": 255.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!16", "alloc": "14-15"}}]}'
+[node-0:job_w0!12:(68) 255.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-13:job_w0!13:(69) 255.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-6:job_w0!15:(71) 255.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-8:job_w0!16:(72) 255.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-6:job_w0!15:(71) 268.500000] [jobs_execution/INFO] Sleeping done
+[node-6:job_w0!15:(71) 268.500000] [jobs_execution/INFO] Job 'w0!15' finished in time (success)
+[master_host:server:(2) 268.500000] [server/INFO] Job w0!15 has COMPLETED. 13 jobs completed so far
+[master_host:Scheduler REQ-REP:(73) 268.500000] [network/INFO] Sending '{"now":268.500000,"events":[{"timestamp":268.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!15","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"12-13"}}]}'
+[master_host:Scheduler REQ-REP:(73) 268.500000] [network/INFO] Received '{"now": 268.5, "events": []}'
+[node-13:job_w0!13:(69) 270.500000] [jobs_execution/INFO] Sleeping done
+[node-13:job_w0!13:(69) 270.500000] [jobs_execution/INFO] Job 'w0!13' finished in time (success)
+[node-8:job_w0!16:(72) 270.500000] [jobs_execution/INFO] Sleeping done
+[node-8:job_w0!16:(72) 270.500000] [jobs_execution/INFO] Job 'w0!16' finished in time (success)
+[master_host:server:(2) 270.500000] [server/INFO] Job w0!13 has COMPLETED. 14 jobs completed so far
+[master_host:server:(2) 270.500000] [server/INFO] Job w0!16 has COMPLETED. 15 jobs completed so far
+[master_host:Scheduler REQ-REP:(74) 270.500000] [network/INFO] Sending '{"now":270.500000,"events":[{"timestamp":270.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!13","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"5"}},{"timestamp":270.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!16","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"14-15"}}]}'
+[master_host:Scheduler REQ-REP:(74) 270.500000] [network/INFO] Received '{"now": 270.5, "events": [{"timestamp": 270.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!17", "alloc": "5 12-15"}}]}'
+[node-13:job_w0!17:(75) 270.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!12:(68) 285.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!12:(68) 285.500000] [jobs_execution/INFO] Job 'w0!12' finished in time (success)
+[master_host:server:(2) 285.500000] [server/INFO] Job w0!12 has COMPLETED. 16 jobs completed so far
+[master_host:Scheduler REQ-REP:(76) 285.500000] [network/INFO] Sending '{"now":285.500000,"events":[{"timestamp":285.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!12","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-4"}}]}'
+[master_host:Scheduler REQ-REP:(76) 285.500000] [network/INFO] Received '{"now": 285.5, "events": [{"timestamp": 285.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!18", "alloc": "0"}}, {"timestamp": 285.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!19", "alloc": "1-2"}}, {"timestamp": 285.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!20", "alloc": "3-4"}}]}'
+[node-0:job_w0!18:(77) 285.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-1:job_w0!19:(78) 285.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-11:job_w0!20:(79) 285.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-14:job_w0!14:(70) 290.500000] [jobs_execution/INFO] Job 'w0!14' finished in time (success)
+[master_host:server:(2) 290.500000] [server/INFO] Job w0!14 has COMPLETED. 17 jobs completed so far
+[master_host:Scheduler REQ-REP:(80) 290.500000] [network/INFO] Sending '{"now":290.500000,"events":[{"timestamp":290.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!14","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"6-11"}}]}'
+[master_host:Scheduler REQ-REP:(80) 290.500000] [network/INFO] Received '{"now": 290.5, "events": [{"timestamp": 290.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!21", "alloc": "6-11"}}]}'
+[node-1:job_w0!19:(78) 292.500000] [jobs_execution/INFO] Sleeping done
+[node-1:job_w0!19:(78) 292.500000] [jobs_execution/INFO] Job 'w0!19' finished in time (success)
+[master_host:server:(2) 292.500000] [server/INFO] Job w0!19 has COMPLETED. 18 jobs completed so far
+[master_host:Scheduler REQ-REP:(82) 292.500000] [network/INFO] Sending '{"now":292.500000,"events":[{"timestamp":292.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!19","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"1-2"}}]}'
+[master_host:Scheduler REQ-REP:(82) 292.500000] [network/INFO] Received '{"now": 292.5, "events": [{"timestamp": 292.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!22", "alloc": "1"}}]}'
+[node-1:job_w0!22:(83) 292.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!18:(77) 296.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!18:(77) 296.500000] [jobs_execution/INFO] Job 'w0!18' finished in time (success)
+[master_host:server:(2) 296.500000] [server/INFO] Job w0!18 has COMPLETED. 19 jobs completed so far
+[master_host:Scheduler REQ-REP:(84) 296.500000] [network/INFO] Sending '{"now":296.500000,"events":[{"timestamp":296.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!18","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0"}}]}'
+[master_host:Scheduler REQ-REP:(84) 296.500000] [network/INFO] Received '{"now": 296.5, "events": []}'
+[node-11:job_w0!20:(79) 297.500000] [jobs_execution/INFO] Sleeping done
+[node-11:job_w0!20:(79) 297.500000] [jobs_execution/INFO] Job 'w0!20' finished in time (success)
+[master_host:server:(2) 297.500000] [server/INFO] Job w0!20 has COMPLETED. 20 jobs completed so far
+[master_host:Scheduler REQ-REP:(85) 297.500000] [network/INFO] Sending '{"now":297.500000,"events":[{"timestamp":297.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!20","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"3-4"}}]}'
+[master_host:Scheduler REQ-REP:(85) 297.500000] [network/INFO] Received '{"now": 297.5, "events": [{"timestamp": 297.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!23", "alloc": "0 2-4"}}]}'
+[node-0:job_w0!23:(86) 297.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-1:job_w0!22:(83) 299.500000] [jobs_execution/INFO] Sleeping done
+[node-1:job_w0!22:(83) 299.500000] [jobs_execution/INFO] Job 'w0!22' finished in time (success)
+[master_host:server:(2) 299.500000] [server/INFO] Job w0!22 has COMPLETED. 21 jobs completed so far
+[master_host:Scheduler REQ-REP:(87) 299.500000] [network/INFO] Sending '{"now":299.500000,"events":[{"timestamp":299.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!22","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"1"}}]}'
+[master_host:Scheduler REQ-REP:(87) 299.500000] [network/INFO] Received '{"now": 299.5, "events": []}'
+[node-13:job_w0!17:(75) 312.500000] [jobs_execution/INFO] Sleeping done
+[node-13:job_w0!17:(75) 312.500000] [jobs_execution/INFO] Job 'w0!17' finished in time (success)
+[master_host:server:(2) 312.500000] [server/INFO] Job w0!17 has COMPLETED. 22 jobs completed so far
+[master_host:Scheduler REQ-REP:(88) 312.500000] [network/INFO] Sending '{"now":312.500000,"events":[{"timestamp":312.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!17","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"5 12-15"}}]}'
+[master_host:Scheduler REQ-REP:(88) 312.500000] [network/INFO] Received '{"now": 312.5, "events": []}'
+[node-0:job_w0!23:(86) 323.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!23:(86) 323.500000] [jobs_execution/INFO] Job 'w0!23' finished in time (success)
+[master_host:server:(2) 323.500000] [server/INFO] Job w0!23 has COMPLETED. 23 jobs completed so far
+[master_host:Scheduler REQ-REP:(89) 323.500000] [network/INFO] Sending '{"now":323.500000,"events":[{"timestamp":323.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!23","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0 2-4"}}]}'
+[master_host:Scheduler REQ-REP:(89) 323.500000] [network/INFO] Received '{"now": 323.5, "events": []}'
+[node-14:job_w0!21:(81) 350.500000] [jobs_execution/INFO] Job 'w0!21' finished in time (success)
+[master_host:server:(2) 350.500000] [server/INFO] Job w0!21 has COMPLETED. 24 jobs completed so far
+[master_host:Scheduler REQ-REP:(90) 350.500000] [network/INFO] Sending '{"now":350.500000,"events":[{"timestamp":350.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!21","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"6-11"}}]}'
+[master_host:Scheduler REQ-REP:(90) 350.500000] [network/INFO] Received '{"now": 350.5, "events": [{"timestamp": 350.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!24", "alloc": "0-11"}}]}'
+[node-0:job_w0!24:(91) 350.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!24:(91) 430.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!24:(91) 430.500000] [jobs_execution/INFO] Job 'w0!24' finished in time (success)
+[master_host:server:(2) 430.500000] [server/INFO] Job w0!24 has COMPLETED. 25 jobs completed so far
+[master_host:Scheduler REQ-REP:(92) 430.500000] [network/INFO] Sending '{"now":430.500000,"events":[{"timestamp":430.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!24","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-11"}}]}'
+[master_host:Scheduler REQ-REP:(92) 430.500000] [network/INFO] Received '{"now": 430.5, "events": [{"timestamp": 430.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!25", "alloc": "0-9"}}, {"timestamp": 430.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!26", "alloc": "10-11"}}, {"timestamp": 430.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!27", "alloc": "12-13"}}]}'
+[node-0:job_w0!25:(93) 430.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-4:job_w0!26:(94) 430.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-6:job_w0!27:(95) 430.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-6:job_w0!27:(95) 438.500000] [jobs_execution/INFO] Sleeping done
+[node-6:job_w0!27:(95) 438.500000] [jobs_execution/INFO] Job 'w0!27' finished in time (success)
+[master_host:server:(2) 438.500000] [server/INFO] Job w0!27 has COMPLETED. 26 jobs completed so far
+[master_host:Scheduler REQ-REP:(96) 438.500000] [network/INFO] Sending '{"now":438.500000,"events":[{"timestamp":438.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!27","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"12-13"}}]}'
+[master_host:Scheduler REQ-REP:(96) 438.500000] [network/INFO] Received '{"now": 438.5, "events": [{"timestamp": 438.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!28", "alloc": "12-15"}}]}'
+[node-4:job_w0!26:(94) 439.500000] [jobs_execution/INFO] Sleeping done
+[node-4:job_w0!26:(94) 439.500000] [jobs_execution/INFO] Job 'w0!26' finished in time (success)
+[master_host:server:(2) 439.500000] [server/INFO] Job w0!26 has COMPLETED. 27 jobs completed so far
+[master_host:Scheduler REQ-REP:(98) 439.500000] [network/INFO] Sending '{"now":439.500000,"events":[{"timestamp":439.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!26","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"10-11"}}]}'
+[master_host:Scheduler REQ-REP:(98) 439.500000] [network/INFO] Received '{"now": 439.5, "events": []}'
+[node-6:job_w0!28:(97) 487.500000] [jobs_execution/INFO] Job 'w0!28' finished in time (success)
+[master_host:server:(2) 487.500000] [server/INFO] Job w0!28 has COMPLETED. 28 jobs completed so far
+[master_host:Scheduler REQ-REP:(99) 487.500000] [network/INFO] Sending '{"now":487.500000,"events":[{"timestamp":487.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!28","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"12-15"}}]}'
+[master_host:Scheduler REQ-REP:(99) 487.500000] [network/INFO] Received '{"now": 487.5, "events": [{"timestamp": 487.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!29", "alloc": "10-15"}}]}'
+[node-4:job_w0!29:(100) 487.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!25:(93) 504.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!25:(93) 504.500000] [jobs_execution/INFO] Job 'w0!25' finished in time (success)
+[master_host:server:(2) 504.500000] [server/INFO] Job w0!25 has COMPLETED. 29 jobs completed so far
+[master_host:Scheduler REQ-REP:(101) 504.500000] [network/INFO] Sending '{"now":504.500000,"events":[{"timestamp":504.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!25","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-9"}}]}'
+[master_host:Scheduler REQ-REP:(101) 504.500000] [network/INFO] Received '{"now": 504.5, "events": [{"timestamp": 504.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!30", "alloc": "0"}}, {"timestamp": 504.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!31", "alloc": "1"}}, {"timestamp": 504.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!32", "alloc": "2-3"}}, {"timestamp": 504.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!33", "alloc": "4-7"}}, {"timestamp": 504.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!34", "alloc": "8"}}]}'
+[node-0:job_w0!30:(102) 504.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-1:job_w0!31:(103) 504.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-10:job_w0!32:(104) 504.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-12:job_w0!33:(105) 504.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-2:job_w0!34:(106) 504.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-4:job_w0!29:(100) 511.500000] [jobs_execution/INFO] Sleeping done
+[node-4:job_w0!29:(100) 511.500000] [jobs_execution/INFO] Job 'w0!29' finished in time (success)
+[master_host:server:(2) 511.500000] [server/INFO] Job w0!29 has COMPLETED. 30 jobs completed so far
+[master_host:Scheduler REQ-REP:(107) 511.500000] [network/INFO] Sending '{"now":511.500000,"events":[{"timestamp":511.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!29","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"10-15"}}]}'
+[master_host:Scheduler REQ-REP:(107) 511.500000] [network/INFO] Received '{"now": 511.5, "events": [{"timestamp": 511.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!35", "alloc": "9-10"}}, {"timestamp": 511.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!36", "alloc": "11-12"}}]}'
+[node-3:job_w0!35:(108) 511.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-5:job_w0!36:(109) 511.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-10:job_w0!32:(104) 512.500000] [jobs_execution/INFO] Sleeping done
+[node-10:job_w0!32:(104) 512.500000] [jobs_execution/INFO] Job 'w0!32' finished in time (success)
+[master_host:server:(2) 512.500000] [server/INFO] Job w0!32 has COMPLETED. 31 jobs completed so far
+[master_host:Scheduler REQ-REP:(110) 512.500000] [network/INFO] Sending '{"now":512.500000,"events":[{"timestamp":512.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!32","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"2-3"}}]}'
+[master_host:Scheduler REQ-REP:(110) 512.500000] [network/INFO] Received '{"now": 512.5, "events": [{"timestamp": 512.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!37", "alloc": "2-3 13-15"}}]}'
+[node-10:job_w0!37:(111) 512.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-0:job_w0!30:(102) 514.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!30:(102) 514.500000] [jobs_execution/INFO] Job 'w0!30' finished in time (success)
+[master_host:server:(2) 514.500000] [server/INFO] Job w0!30 has COMPLETED. 32 jobs completed so far
+[master_host:Scheduler REQ-REP:(112) 514.500000] [network/INFO] Sending '{"now":514.500000,"events":[{"timestamp":514.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!30","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0"}}]}'
+[master_host:Scheduler REQ-REP:(112) 514.500000] [network/INFO] Received '{"now": 514.5, "events": []}'
+[node-1:job_w0!31:(103) 516.500000] [jobs_execution/INFO] Sleeping done
+[node-1:job_w0!31:(103) 516.500000] [jobs_execution/INFO] Job 'w0!31' finished in time (success)
+[node-2:job_w0!34:(106) 516.500000] [jobs_execution/INFO] Sleeping done
+[node-2:job_w0!34:(106) 516.500000] [jobs_execution/INFO] Job 'w0!34' finished in time (success)
+[master_host:server:(2) 516.500000] [server/INFO] Job w0!31 has COMPLETED. 33 jobs completed so far
+[master_host:server:(2) 516.500000] [server/INFO] Job w0!34 has COMPLETED. 34 jobs completed so far
+[master_host:Scheduler REQ-REP:(113) 516.500000] [network/INFO] Sending '{"now":516.500000,"events":[{"timestamp":516.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!31","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"1"}},{"timestamp":516.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!34","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"8"}}]}'
+[master_host:Scheduler REQ-REP:(113) 516.500000] [network/INFO] Received '{"now": 516.5, "events": [{"timestamp": 516.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!38", "alloc": "0-1"}}, {"timestamp": 516.5, "type": "EXECUTE_JOB", "data": {"job_id": "w0!39", "alloc": "8"}}]}'
+[node-0:job_w0!38:(114) 516.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-2:job_w0!39:(115) 516.500000] [jobs_execution/INFO] Sleeping the whole task length
+[node-3:job_w0!35:(108) 517.500000] [jobs_execution/INFO] Sleeping done
+[node-3:job_w0!35:(108) 517.500000] [jobs_execution/INFO] Job 'w0!35' finished in time (success)
+[node-5:job_w0!36:(109) 517.500000] [jobs_execution/INFO] Sleeping done
+[node-5:job_w0!36:(109) 517.500000] [jobs_execution/INFO] Job 'w0!36' finished in time (success)
+[master_host:server:(2) 517.500000] [server/INFO] Job w0!35 has COMPLETED. 35 jobs completed so far
+[master_host:server:(2) 517.500000] [server/INFO] Job w0!36 has COMPLETED. 36 jobs completed so far
+[master_host:Scheduler REQ-REP:(116) 517.500000] [network/INFO] Sending '{"now":517.500000,"events":[{"timestamp":517.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!35","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"9-10"}},{"timestamp":517.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!36","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"11-12"}}]}'
+[master_host:Scheduler REQ-REP:(116) 517.500000] [network/INFO] Received '{"now": 517.5, "events": []}'
+[node-2:job_w0!39:(115) 525.500000] [jobs_execution/INFO] Sleeping done
+[node-2:job_w0!39:(115) 525.500000] [jobs_execution/INFO] Job 'w0!39' finished in time (success)
+[master_host:server:(2) 525.500000] [server/INFO] Job w0!39 has COMPLETED. 37 jobs completed so far
+[master_host:Scheduler REQ-REP:(117) 525.500000] [network/INFO] Sending '{"now":525.500000,"events":[{"timestamp":525.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!39","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"8"}}]}'
+[master_host:Scheduler REQ-REP:(117) 525.500000] [network/INFO] Received '{"now": 525.5, "events": []}'
+[node-0:job_w0!38:(114) 532.500000] [jobs_execution/INFO] Sleeping done
+[node-0:job_w0!38:(114) 532.500000] [jobs_execution/INFO] Job 'w0!38' finished in time (success)
+[master_host:server:(2) 532.500000] [server/INFO] Job w0!38 has COMPLETED. 38 jobs completed so far
+[master_host:Scheduler REQ-REP:(118) 532.500000] [network/INFO] Sending '{"now":532.500000,"events":[{"timestamp":532.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!38","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"0-1"}}]}'
+[master_host:Scheduler REQ-REP:(118) 532.500000] [network/INFO] Received '{"now": 532.5, "events": []}'
+[node-12:job_w0!33:(105) 541.500000] [jobs_execution/INFO] Sleeping done
+[node-12:job_w0!33:(105) 541.500000] [jobs_execution/INFO] Job 'w0!33' finished in time (success)
+[master_host:server:(2) 541.500000] [server/INFO] Job w0!33 has COMPLETED. 39 jobs completed so far
+[master_host:Scheduler REQ-REP:(119) 541.500000] [network/INFO] Sending '{"now":541.500000,"events":[{"timestamp":541.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!33","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"4-7"}}]}'
+[master_host:Scheduler REQ-REP:(119) 541.500000] [network/INFO] Received '{"now": 541.5, "events": []}'
+[node-10:job_w0!37:(111) 549.500000] [jobs_execution/INFO] Sleeping done
+[node-10:job_w0!37:(111) 549.500000] [jobs_execution/INFO] Job 'w0!37' finished in time (success)
+[master_host:server:(2) 549.500000] [server/INFO] Job w0!37 has COMPLETED. 40 jobs completed so far
+[master_host:Scheduler REQ-REP:(120) 549.500000] [network/INFO] Sending '{"now":549.500000,"events":[{"timestamp":549.500000,"type":"JOB_COMPLETED","data":{"job_id":"w0!37","job_state":"COMPLETED_SUCCESSFULLY","return_code":0,"alloc":"2-3 13-15"}}]}'
+[master_host:Scheduler REQ-REP:(120) 549.500000] [network/INFO] Received '{"now": 549.5, "events": []}'
+[master_host:server:(2) 549.500000] [server/INFO] The simulation seems finished.
+[master_host:Scheduler REQ-REP:(121) 549.500000] [network/INFO] Sending '{"now":549.500000,"events":[{"timestamp":549.500000,"type":"SIMULATION_ENDS","data":{}}]}'
+[master_host:Scheduler REQ-REP:(121) 549.500000] [network/INFO] Received '{"now": 549.5, "events": []}'
+[master_host:server:(2) 549.500000] [server/INFO] Simulation is finished!
+[549.500000] [export/INFO] PajeTracer finalized
+[549.500000] [export/INFO] jobs=40, finished=40, success=40, killed=0, success_rate=1.000000
+[549.500000] [export/INFO] makespan=549.500000, scheduling_time=0.033578, mean_waiting_time=210.186750, mean_turnaround_time=236.686750, mean_slowdown=17.093685, max_waiting_time=394.000000, max_turnaround_time=424.210000, max_slowdown=66.495000
+[549.500000] [export/INFO] mean_machines_running=413.500000, max_machines_running=524.000000

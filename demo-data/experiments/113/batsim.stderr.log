@@ -1,0 +1,19 @@
+[0.000000] [batsim/INFO] Workload 'w0' corresponds to workload file '/data/workload.json'.
+[0.000000] [batsim/INFO] Batsim version: commit d4d3411d81ffb97a61e866b3e200782aacb61ba4 (built by Nix from master branch)
+[0.000000] [workload/INFO] Loading JSON workload '/data/workload.json'...
+[0.000000] [workload/INFO] JSON workload parsed sucessfully. Read 14144 jobs and 9089 profiles.
+[0.000000] [workload/INFO] Checking workload validity...
+[0.000000] [workload/INFO] Workload seems to be valid.
+[0.000000] [workload/INFO] Removing unreferenced profiles from memory...
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'host/model' to 'ptask_L07'
+[0.000000] [batsim/INFO] Checking whether SMPI is used or not...
+[0.000000] [machines/INFO] Creating the machines from platform file '/data/platform.xml'...
+[0.000000] [platf_parse/INFO] You're using a v4.0 XML file (/data/platform.xml) while the current standard is v4.1 That's fine, the new version is backward compatible. 
+
+Use simgrid_update_xml to update your file automatically to get rid of this warning. This program is installed automatically with SimGrid, or available in the tools/ directory of the source archive.
+[0.000000] [xbt_cfg/INFO] Switching to the L07 model to handle parallel tasks.
+[0.000000] [machines/INFO] Looking for master host 'master_host'
+[0.000000] [machines/INFO] The machines have been created successfully. There are 288 computing machines.
+[0.000000] [batsim/INFO] Batsim's export prefix is '/data/out'.
+[0.000000] [batsim/INFO] The process 'workload_submitter_w0' has been created.
+[0.000000] [batsim/INFO] The process 'server' has been created.

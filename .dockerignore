@@ -1,0 +1,20 @@
+# Keep the build context small. backend/storage alone is ~2.3 GB locally and
+# would otherwise be uploaded to the daemon on every build.
+.git
+.github
+
+backend/storage
+backend/batsim.db
+backend/batsim.db.bak-*
+backend/venv
+backend/.venv
+backend/.env
+backend/test-reports
+backend/.pytest_cache
+backend/.coverage
+**/__pycache__
+
+frontend/node_modules
+frontend/dist
+
+# demo-data is copied explicitly by Dockerfile.demo and must not be excluded.

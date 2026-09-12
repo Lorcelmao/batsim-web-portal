@@ -1,0 +1,118 @@
+[0.000000] [batsim/INFO] Workload 'w0' corresponds to workload file '/data/workload.json'.
+[0.000000] [batsim/INFO] Batsim version: commit d4d3411d81ffb97a61e866b3e200782aacb61ba4 (built by Nix from master branch)
+[0.000000] [workload/INFO] Loading JSON workload '/data/workload.json'...
+[0.000000] [workload/INFO] JSON workload parsed sucessfully. Read 10 jobs and 10 profiles.
+[0.000000] [workload/INFO] Checking workload validity...
+[0.000000] [workload/INFO] Workload seems to be valid.
+[0.000000] [workload/INFO] Removing unreferenced profiles from memory...
+[0.000000] [xbt_cfg/INFO] Configuration change: Set 'host/model' to 'ptask_L07'
+[0.000000] [batsim/INFO] Checking whether SMPI is used or not...
+[0.000000] [machines/INFO] Creating the machines from platform file '/data/platform.xml'...
+[0.000000] [xbt_cfg/INFO] Switching to the L07 model to handle parallel tasks.
+[0.000000] [machines/INFO] Looking for master host 'master_host'
+[0.000000] [machines/INFO] The machines have been created successfully. There are 16 computing machines.
+[0.000000] [batsim/INFO] Batsim's export prefix is '/data/out'.
+[0.000000] [batsim/INFO] The process 'workload_submitter_w0' has been created.
+[0.000000] [batsim/INFO] The process 'server' has been created.
+[master_host:Scheduler REQ-REP:(3) 0.000000] [network/INFO] Sending '{"now":0.000000,"events":[{"timestamp":0.000000,"type":"SIMULATION_BEGINS","data":{"nb_resources":16,"nb_compute_resources":16,"nb_storage_resources":0,"allow_compute_sharing":false,"allow_storage_sharing":true,"config":{"redis-enabled":false,"redis-hostname":"127.0.0.1","redis-port":6379,"redis-prefix":"default","profiles-forwarded-on-submission":false,"dynamic-jobs-enabled":false,"dynamic-jobs-acknowledged":false,"profile-reuse-enabled":false,"sched-config":"","forward-unknown-events":false},"compute_resources":[{"id":0,"name":"host0","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":1,"name":"host1","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":2,"name":"host10","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":3,"name":"host11","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":4,"name":"host12","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":5,"name":"host13","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":6,"name":"host14","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":7,"name":"host15","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":8,"name":"host2","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":9,"name":"host3","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":10,"name":"host4","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":11,"name":"host5","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":12,"name":"host6","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":13,"name":"host7","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":14,"name":"host8","state":"idle","properties":{"role":""},"zone_properties":{}},{"id":15,"name":"host9","state":"idle","properties":{"role":""},"zone_properties":{}}],"storage_resources":[],"workloads":{"w0":"/data/workload.json"},"profiles":{"w0":{"p120":{"type":"delay","delay":120},"p100":{"type":"delay","delay":100},"p75":{"type":"delay","delay":75},"p90":{"type":"delay","delay":90},"p60":{"type":"delay","delay":60},"p45":{"type":"delay","delay":45},"p40":{"type":"delay","delay":40},"p30":{"type":"delay","delay":30},"p55":{"type":"delay","delay":55},"p20":{"type":"delay","delay":20}}}}}]}'
+[master_host:Scheduler REQ-REP:(3) 0.000000] [network/INFO] Received '{"now": 0.0, "events": []}'
+[master_host:server:(2) 0.000000] [server/INFO] Job w0!0 SUBMITTED. 1 jobs submitted so far
+[master_host:Scheduler REQ-REP:(4) 0.000000] [network/INFO] Sending '{"now":0.000000,"events":[{"timestamp":0.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!0","job":{"id":"w0!0","subtime":0,"walltime":60,"res":4,"profile":"p60"}}}]}'
+[master_host:Scheduler REQ-REP:(4) 0.000000] [network/INFO] Received '{"now": 0.0, "events": [{"timestamp": 0.0, "type": "EXECUTE_JOB", "data": {"job_id": "w0!0", "alloc": "0-3"}}]}'
+[host0:job_w0!0:(5) 0.000000] [jobs_execution/INFO] Sleeping until walltime
+[master_host:server:(2) 5.000000] [server/INFO] Job w0!1 SUBMITTED. 2 jobs submitted so far
+[master_host:Scheduler REQ-REP:(6) 5.000000] [network/INFO] Sending '{"now":5.000000,"events":[{"timestamp":5.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!1","job":{"id":"w0!1","subtime":5,"walltime":120,"res":12,"profile":"p120"}}}]}'
+[master_host:Scheduler REQ-REP:(6) 5.000000] [network/INFO] Received '{"now": 5.0, "events": [{"timestamp": 5.0, "type": "EXECUTE_JOB", "data": {"job_id": "w0!1", "alloc": "4-15"}}]}'
+[host12:job_w0!1:(7) 5.000000] [jobs_execution/INFO] Sleeping until walltime
+[master_host:server:(2) 10.000000] [server/INFO] Job w0!2 SUBMITTED. 3 jobs submitted so far
+[master_host:Scheduler REQ-REP:(8) 10.000000] [network/INFO] Sending '{"now":10.000000,"events":[{"timestamp":10.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!2","job":{"id":"w0!2","subtime":10,"walltime":30,"res":2,"profile":"p30"}}}]}'
+[master_host:Scheduler REQ-REP:(8) 10.000000] [network/INFO] Received '{"now": 10.0, "events": []}'
+[master_host:server:(2) 15.000000] [server/INFO] Job w0!3 SUBMITTED. 4 jobs submitted so far
+[master_host:Scheduler REQ-REP:(9) 15.000000] [network/INFO] Sending '{"now":15.000000,"events":[{"timestamp":15.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!3","job":{"id":"w0!3","subtime":15,"walltime":45,"res":3,"profile":"p45"}}}]}'
+[master_host:Scheduler REQ-REP:(9) 15.000000] [network/INFO] Received '{"now": 15.0, "events": []}'
+[master_host:server:(2) 20.000000] [server/INFO] Job w0!4 SUBMITTED. 5 jobs submitted so far
+[master_host:Scheduler REQ-REP:(10) 20.000000] [network/INFO] Sending '{"now":20.000000,"events":[{"timestamp":20.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!4","job":{"id":"w0!4","subtime":20,"walltime":90,"res":8,"profile":"p90"}}}]}'
+[master_host:Scheduler REQ-REP:(10) 20.000000] [network/INFO] Received '{"now": 20.0, "events": []}'
+[master_host:server:(2) 25.000000] [server/INFO] Job w0!5 SUBMITTED. 6 jobs submitted so far
+[master_host:Scheduler REQ-REP:(11) 25.000000] [network/INFO] Sending '{"now":25.000000,"events":[{"timestamp":25.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!5","job":{"id":"w0!5","subtime":25,"walltime":20,"res":1,"profile":"p20"}}}]}'
+[master_host:Scheduler REQ-REP:(11) 25.000000] [network/INFO] Received '{"now": 25.0, "events": []}'
+[master_host:server:(2) 30.000000] [server/INFO] Job w0!6 SUBMITTED. 7 jobs submitted so far
+[master_host:Scheduler REQ-REP:(12) 30.000000] [network/INFO] Sending '{"now":30.000000,"events":[{"timestamp":30.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!6","job":{"id":"w0!6","subtime":30,"walltime":75,"res":6,"profile":"p75"}}}]}'
+[master_host:Scheduler REQ-REP:(12) 30.000000] [network/INFO] Received '{"now": 30.0, "events": []}'
+[master_host:server:(2) 35.000000] [server/INFO] Job w0!7 SUBMITTED. 8 jobs submitted so far
+[master_host:Scheduler REQ-REP:(13) 35.000000] [network/INFO] Sending '{"now":35.000000,"events":[{"timestamp":35.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!7","job":{"id":"w0!7","subtime":35,"walltime":100,"res":10,"profile":"p100"}}}]}'
+[master_host:Scheduler REQ-REP:(13) 35.000000] [network/INFO] Received '{"now": 35.0, "events": []}'
+[master_host:server:(2) 40.000000] [server/INFO] Job w0!8 SUBMITTED. 9 jobs submitted so far
+[master_host:Scheduler REQ-REP:(14) 40.000000] [network/INFO] Sending '{"now":40.000000,"events":[{"timestamp":40.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!8","job":{"id":"w0!8","subtime":40,"walltime":40,"res":4,"profile":"p40"}}}]}'
+[master_host:Scheduler REQ-REP:(14) 40.000000] [network/INFO] Received '{"now": 40.0, "events": []}'
+[master_host:server:(2) 45.000000] [server/INFO] Job w0!9 SUBMITTED. 10 jobs submitted so far
+[master_host:Scheduler REQ-REP:(15) 45.000000] [network/INFO] Sending '{"now":45.000000,"events":[{"timestamp":45.000000,"type":"JOB_SUBMITTED","data":{"job_id":"w0!9","job":{"id":"w0!9","subtime":45,"walltime":55,"res":5,"profile":"p55"}}}]}'
+[master_host:Scheduler REQ-REP:(15) 45.000000] [network/INFO] Received '{"now": 45.0, "events": []}'
+[master_host:Scheduler REQ-REP:(16) 45.000000] [network/INFO] Sending '{"now":45.000000,"events":[{"timestamp":45.000000,"type":"NOTIFY","data":{"type":"no_more_static_job_to_submit"}}]}'
+[master_host:Scheduler REQ-REP:(16) 45.000000] [network/INFO] Received '{"now": 45.0, "events": []}'
+[host0:job_w0!0:(5) 60.000000] [jobs_execution/INFO] Job has reached walltime
+[host0:job_w0!0:(5) 60.000000] [jobs_execution/INFO] Job 'w0!0' had been killed (walltime 60 reached)
+[master_host:server:(2) 60.000050] [server/INFO] Job w0!0 has COMPLETED. 1 jobs completed so far
+[master_host:Scheduler REQ-REP:(17) 60.000050] [network/INFO] Sending '{"now":60.000050,"events":[{"timestamp":60.000050,"type":"JOB_COMPLETED","data":{"job_id":"w0!0","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"0-3"}}]}'
+[master_host:Scheduler REQ-REP:(17) 60.000050] [network/INFO] Received '{"now": 60.00005, "events": [{"timestamp": 60.00005, "type": "EXECUTE_JOB", "data": {"job_id": "w0!2", "alloc": "0-1"}}, {"timestamp": 60.00005, "type": "EXECUTE_JOB", "data": {"job_id": "w0!5", "alloc": "2"}}]}'
+[host0:job_w0!2:(18) 60.000050] [jobs_execution/INFO] Sleeping until walltime
+[host10:job_w0!5:(19) 60.000050] [jobs_execution/INFO] Sleeping until walltime
+[host10:job_w0!5:(19) 80.000050] [jobs_execution/INFO] Job has reached walltime
+[host10:job_w0!5:(19) 80.000050] [jobs_execution/INFO] Job 'w0!5' had been killed (walltime 20 reached)
+[master_host:server:(2) 80.000100] [server/INFO] Job w0!5 has COMPLETED. 2 jobs completed so far
+[master_host:Scheduler REQ-REP:(20) 80.000100] [network/INFO] Sending '{"now":80.000100,"events":[{"timestamp":80.000100,"type":"JOB_COMPLETED","data":{"job_id":"w0!5","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"2"}}]}'
+[master_host:Scheduler REQ-REP:(20) 80.000100] [network/INFO] Received '{"now": 80.0001, "events": []}'
+[host0:job_w0!2:(18) 90.000050] [jobs_execution/INFO] Job has reached walltime
+[host0:job_w0!2:(18) 90.000050] [jobs_execution/INFO] Job 'w0!2' had been killed (walltime 30 reached)
+[master_host:server:(2) 90.000100] [server/INFO] Job w0!2 has COMPLETED. 3 jobs completed so far
+[master_host:Scheduler REQ-REP:(21) 90.000100] [network/INFO] Sending '{"now":90.000100,"events":[{"timestamp":90.000100,"type":"JOB_COMPLETED","data":{"job_id":"w0!2","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"0-1"}}]}'
+[master_host:Scheduler REQ-REP:(21) 90.000100] [network/INFO] Received '{"now": 90.0001, "events": [{"timestamp": 90.0001, "type": "EXECUTE_JOB", "data": {"job_id": "w0!3", "alloc": "0-2"}}]}'
+[host0:job_w0!3:(22) 90.000100] [jobs_execution/INFO] Sleeping until walltime
+[host12:job_w0!1:(7) 125.000000] [jobs_execution/INFO] Job has reached walltime
+[host12:job_w0!1:(7) 125.000000] [jobs_execution/INFO] Job 'w0!1' had been killed (walltime 120 reached)
+[master_host:server:(2) 125.000050] [server/INFO] Job w0!1 has COMPLETED. 4 jobs completed so far
+[master_host:Scheduler REQ-REP:(23) 125.000050] [network/INFO] Sending '{"now":125.000050,"events":[{"timestamp":125.000050,"type":"JOB_COMPLETED","data":{"job_id":"w0!1","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"4-15"}}]}'
+[master_host:Scheduler REQ-REP:(23) 125.000050] [network/INFO] Received '{"now": 125.00005, "events": [{"timestamp": 125.00005, "type": "EXECUTE_JOB", "data": {"job_id": "w0!4", "alloc": "3-10"}}]}'
+[host11:job_w0!4:(24) 125.000050] [jobs_execution/INFO] Sleeping until walltime
+[host0:job_w0!3:(22) 135.000100] [jobs_execution/INFO] Job has reached walltime
+[host0:job_w0!3:(22) 135.000100] [jobs_execution/INFO] Job 'w0!3' had been killed (walltime 45 reached)
+[master_host:server:(2) 135.000150] [server/INFO] Job w0!3 has COMPLETED. 5 jobs completed so far
+[master_host:Scheduler REQ-REP:(25) 135.000150] [network/INFO] Sending '{"now":135.000150,"events":[{"timestamp":135.000150,"type":"JOB_COMPLETED","data":{"job_id":"w0!3","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"0-2"}}]}'
+[master_host:Scheduler REQ-REP:(25) 135.000150] [network/INFO] Received '{"now": 135.00015, "events": [{"timestamp": 135.00015, "type": "EXECUTE_JOB", "data": {"job_id": "w0!6", "alloc": "0-2 11-13"}}]}'
+[host0:job_w0!6:(26) 135.000150] [jobs_execution/INFO] Sleeping until walltime
+[host0:job_w0!6:(26) 210.000150] [jobs_execution/INFO] Job has reached walltime
+[host0:job_w0!6:(26) 210.000150] [jobs_execution/INFO] Job 'w0!6' had been killed (walltime 75 reached)
+[master_host:server:(2) 210.000200] [server/INFO] Job w0!6 has COMPLETED. 6 jobs completed so far
+[master_host:Scheduler REQ-REP:(27) 210.000200] [network/INFO] Sending '{"now":210.000200,"events":[{"timestamp":210.000200,"type":"JOB_COMPLETED","data":{"job_id":"w0!6","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"0-2 11-13"}}]}'
+[master_host:Scheduler REQ-REP:(27) 210.000200] [network/INFO] Received '{"now": 210.0002, "events": []}'
+[host11:job_w0!4:(24) 215.000050] [jobs_execution/INFO] Job has reached walltime
+[host11:job_w0!4:(24) 215.000050] [jobs_execution/INFO] Job 'w0!4' had been killed (walltime 90 reached)
+[master_host:server:(2) 215.000100] [server/INFO] Job w0!4 has COMPLETED. 7 jobs completed so far
+[master_host:Scheduler REQ-REP:(28) 215.000100] [network/INFO] Sending '{"now":215.000100,"events":[{"timestamp":215.000100,"type":"JOB_COMPLETED","data":{"job_id":"w0!4","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"3-10"}}]}'
+[master_host:Scheduler REQ-REP:(28) 215.000100] [network/INFO] Received '{"now": 215.0001, "events": [{"timestamp": 215.0001, "type": "EXECUTE_JOB", "data": {"job_id": "w0!7", "alloc": "0-9"}}, {"timestamp": 215.0001, "type": "EXECUTE_JOB", "data": {"job_id": "w0!8", "alloc": "10-13"}}]}'
+[host0:job_w0!7:(29) 215.000100] [jobs_execution/INFO] Sleeping until walltime
+[host4:job_w0!8:(30) 215.000100] [jobs_execution/INFO] Sleeping until walltime
+[host4:job_w0!8:(30) 255.000100] [jobs_execution/INFO] Job has reached walltime
+[host4:job_w0!8:(30) 255.000100] [jobs_execution/INFO] Job 'w0!8' had been killed (walltime 40 reached)
+[master_host:server:(2) 255.000150] [server/INFO] Job w0!8 has COMPLETED. 8 jobs completed so far
+[master_host:Scheduler REQ-REP:(31) 255.000150] [network/INFO] Sending '{"now":255.000150,"events":[{"timestamp":255.000150,"type":"JOB_COMPLETED","data":{"job_id":"w0!8","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"10-13"}}]}'
+[master_host:Scheduler REQ-REP:(31) 255.000150] [network/INFO] Received '{"now": 255.00015, "events": [{"timestamp": 255.00015, "type": "EXECUTE_JOB", "data": {"job_id": "w0!9", "alloc": "10-14"}}]}'
+[host4:job_w0!9:(32) 255.000150] [jobs_execution/INFO] Sleeping until walltime
+[host4:job_w0!9:(32) 310.000150] [jobs_execution/INFO] Job has reached walltime
+[host4:job_w0!9:(32) 310.000150] [jobs_execution/INFO] Job 'w0!9' had been killed (walltime 55 reached)
+[master_host:server:(2) 310.000200] [server/INFO] Job w0!9 has COMPLETED. 9 jobs completed so far
+[master_host:Scheduler REQ-REP:(33) 310.000200] [network/INFO] Sending '{"now":310.000200,"events":[{"timestamp":310.000200,"type":"JOB_COMPLETED","data":{"job_id":"w0!9","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"10-14"}}]}'
+[master_host:Scheduler REQ-REP:(33) 310.000200] [network/INFO] Received '{"now": 310.0002, "events": []}'
+[host0:job_w0!7:(29) 315.000100] [jobs_execution/INFO] Job has reached walltime
+[host0:job_w0!7:(29) 315.000100] [jobs_execution/INFO] Job 'w0!7' had been killed (walltime 100 reached)
+[master_host:server:(2) 315.000150] [server/INFO] Job w0!7 has COMPLETED. 10 jobs completed so far
+[master_host:Scheduler REQ-REP:(34) 315.000150] [network/INFO] Sending '{"now":315.000150,"events":[{"timestamp":315.000150,"type":"JOB_COMPLETED","data":{"job_id":"w0!7","job_state":"COMPLETED_WALLTIME_REACHED","return_code":-1,"alloc":"0-9"}}]}'
+[master_host:Scheduler REQ-REP:(34) 315.000150] [network/INFO] Received '{"now": 315.00015, "events": []}'
+[master_host:server:(2) 315.000150] [server/INFO] The simulation seems finished.
+[master_host:Scheduler REQ-REP:(35) 315.000150] [network/INFO] Sending '{"now":315.000150,"events":[{"timestamp":315.000150,"type":"SIMULATION_ENDS","data":{}}]}'
+[master_host:Scheduler REQ-REP:(35) 315.000150] [network/INFO] Received '{"now": 315.00015, "events": []}'
+[master_host:server:(2) 315.000150] [server/INFO] Simulation is finished!
+[315.000150] [export/INFO] PajeTracer finalized
+[315.000150] [export/INFO] jobs=10, finished=10, success=0, killed=10, success_rate=0.000000
+[315.000150] [export/INFO] makespan=315.000100, scheduling_time=0.010528, mean_waiting_time=93.500075, mean_turnaround_time=157.000075, mean_slowdown=2.764320, max_waiting_time=210.000150, max_turnaround_time=280.000100, max_slowdown=5.375003
+[315.000150] [export/INFO] mean_machines_running=281.250000, max_machines_running=310.000000
