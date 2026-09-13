@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+
+// Imported rather than referenced by URL: a literal "/src/assets/..." path is
+// only served by the Vite dev server, so it 404s in any production build.
+import batsimLogo from "../assets/batweb-logo.png";
 import {
   Box,
   Grid,
@@ -236,7 +240,7 @@ const DashboardPage: React.FC = () => {
           }}
         >
           <img
-            src="/src/assets/batweb-logo.png"
+            src={batsimLogo}
             alt="BatSim"
             style={{
               height: 140,

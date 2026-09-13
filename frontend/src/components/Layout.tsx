@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+
+// Imported rather than referenced by URL: a literal "/src/assets/..." path is
+// only served by the Vite dev server, so it 404s in any production build.
+import titleLogoWhite from "../assets/batweb-title-logo-white.png";
 import {
   AppBar,
   Box,
@@ -93,7 +97,7 @@ const Layout: React.FC = () => {
         >
           <a href="/">
             <img
-              src="/src/assets/batweb-title-logo-white.png"
+              src={titleLogoWhite}
               alt="BatSim Portal"
               style={{
                 maxWidth: 180,
