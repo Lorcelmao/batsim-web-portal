@@ -238,7 +238,11 @@ def seed_demo_data():
         db.close()
 
 
-seed_admin_user()
+# Skipped in demo mode: this seeds a well-known admin/admin@123 account, which
+# is acceptable on a trusted network but would hand every visitor of a public
+# demo an administrator login. The demo image ships its own read-only account.
+if not settings.DEMO_MODE:
+    seed_admin_user()
 
 # Cleanup orphan Docker containers from previous crashes.
 # Skipped in demo mode: there is no Docker daemon to talk to, and the demo never

@@ -93,3 +93,29 @@ def test_safe_methods_do_not_include_mutating_verbs():
 def test_allowed_write_paths_are_auth_only():
     # A non-auth path slipping into this set would silently open a write hole.
     assert all(path.startswith("/api/auth/") for path in ALLOWED_WRITE_PATHS)
+
+
+def test_shipped_demo_database_has_no_admin_account():
+    """The demo image must not ship an administrator login.
+
+    seed_admin_user() creates a well-known admin/admin@123 account, which is
+    fine on a trusted network but would hand every visitor of a public demo an
+    administrator. main.py skips the seed under DEMO_MODE; this guards the other
+    half — that the dataset itself was built without one.
+    """
+    import sqlite3
+    from pathlib import Path
+
+    demo_db = Path(__file__).resolve().parents[3] / "demo-data" / "batsim.db"
+    if not demo_db.is_file():
+        pytest.skip("demo-data not built; run scripts/build-demo-data.py")
+
+    conn = sqlite3.connect(demo_db)
+    try:
+        admins = conn.execute(
+            "SELECT username FROM users WHERE UPPER(role) = 'ADMIN'"
+        ).fetchall()
+    finally:
+        conn.close()
+
+    assert admins == [], f"demo database ships admin account(s): {admins}"
