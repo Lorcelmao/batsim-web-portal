@@ -1,0 +1,28 @@
+{
+  "description": "TN 5 demo workload: 10 jobs on 16 host, mix of small/medium/large to expose backfill behavior",
+  "nb_res": 16,
+  "jobs": [
+    {"id": 0, "subtime": 0,   "walltime": 60,  "res": 4,  "profile": "p60"},
+    {"id": 1, "subtime": 5,   "walltime": 120, "res": 12, "profile": "p120"},
+    {"id": 2, "subtime": 10,  "walltime": 30,  "res": 2,  "profile": "p30"},
+    {"id": 3, "subtime": 15,  "walltime": 45,  "res": 3,  "profile": "p45"},
+    {"id": 4, "subtime": 20,  "walltime": 90,  "res": 8,  "profile": "p90"},
+    {"id": 5, "subtime": 25,  "walltime": 20,  "res": 1,  "profile": "p20"},
+    {"id": 6, "subtime": 30,  "walltime": 75,  "res": 6,  "profile": "p75"},
+    {"id": 7, "subtime": 35,  "walltime": 100, "res": 10, "profile": "p100"},
+    {"id": 8, "subtime": 40,  "walltime": 40,  "res": 4,  "profile": "p40"},
+    {"id": 9, "subtime": 45,  "walltime": 55,  "res": 5,  "profile": "p55"}
+  ],
+  "profiles": {
+    "p20":  {"type": "delay", "delay": 20},
+    "p30":  {"type": "delay", "delay": 30},
+    "p40":  {"type": "delay", "delay": 40},
+    "p45":  {"type": "delay", "delay": 45},
+    "p55":  {"type": "delay", "delay": 55},
+    "p60":  {"type": "delay", "delay": 60},
+    "p75":  {"type": "delay", "delay": 75},
+    "p90":  {"type": "delay", "delay": 90},
+    "p100": {"type": "delay", "delay": 100},
+    "p120": {"type": "delay", "delay": 120}
+  }
+}

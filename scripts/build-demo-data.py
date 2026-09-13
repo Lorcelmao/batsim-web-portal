@@ -31,7 +31,7 @@ import argparse
 import shutil
 import sqlite3
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 # Mirrors _STREAM_CAP_BYTES in app/api/experiments.py. Keep the two in step: a
 # larger value here ships bytes the API will never return.
@@ -116,6 +116,39 @@ def select_experiments(
     for exp_id, jobs in picked:
         print(f"  experiment {exp_id:>4}  {jobs:>7} jobs")
     return [exp_id for exp_id, _ in picked]
+
+
+def copy_entity_files(db: Path, storage_root: Path, out: Path) -> None:
+    """Copy the strategy, workload and platform files the kept rows point at.
+
+    These live alongside storage/experiments and are read by the source-preview,
+    content and download endpoints. Omitting them leaves the rows in place but
+    the files missing, which surfaces as "file not found on disk" in the UI.
+
+    file_path columns hold absolute container paths (/app/storage/<kind>/<name>),
+    so only the trailing two segments are meaningful when copying from a host
+    checkout.
+    """
+    conn = sqlite3.connect(db)
+    try:
+        for kind in ("strategies", "workloads", "platforms"):
+            dest = out / kind
+            dest.mkdir(parents=True, exist_ok=True)
+            copied = missing = 0
+            for (file_path,) in conn.execute(f"SELECT file_path FROM {kind}"):
+                if not file_path:
+                    continue
+                name = PurePosixPath(file_path).name
+                source = storage_root / kind / name
+                if source.is_file():
+                    shutil.copy2(source, dest / name)
+                    copied += 1
+                else:
+                    missing += 1
+            note = f", {missing} missing at source" if missing else ""
+            print(f"  {kind:12} {copied} files{note}")
+    finally:
+        conn.close()
 
 
 def copy_experiment_files(src: Path, dst: Path, exp_ids: list[int]) -> None:
@@ -229,6 +262,10 @@ def main() -> None:
 
     copy_experiment_files(args.source_storage, experiments_out, exp_ids)
     prune_database(args.source_db, args.out / "batsim.db", exp_ids)
+
+    # Must run after pruning: only the surviving rows should contribute files.
+    print("Copying strategy, workload and platform files:")
+    copy_entity_files(args.out / "batsim.db", args.source_storage.parent, args.out)
 
     total = sum(f.stat().st_size for f in args.out.rglob("*") if f.is_file())
     print(f"\nWrote {args.out} — {total / 1e6:.1f} MB, {len(exp_ids)} experiments")

@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
+<!-- Defense demo platform: 16-node homogeneous cluster + master_host.
+     Same proven structure as cluster288-HCMUT (used in TN 6), radical scaled
+     down to 16. 16 hosts vs 12-res blocker jobs (75% of cluster) is deliberate:
+     it creates the head-of-line contention the demo workload showcases. -->
+<platform version="4">
+  <AS id="AS0" routing="Full">
+    <cluster id="demo_cluster" prefix="node-" suffix="" radical="0-15" speed="1Gf" bw="125GBps" lat="0" router_id="router1"/>
+
+    <AS id="AS1" routing="Full">
+      <host id="master_host" speed="1Gf"/>
+    </AS>
+
+    <link id="backbone" bandwidth="125GBps" latency="0" sharing_policy="FATPIPE"/>
+
+    <ASroute src="demo_cluster" dst="AS1" gw_src="router1" gw_dst="master_host">
+      <link_ctn id="backbone"/>
+    </ASroute>
+  </AS>
+</platform>

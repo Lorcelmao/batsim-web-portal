@@ -1,0 +1,391 @@
+{
+  "nb_res": 16,
+  "jobs": [
+    {
+      "id": 0,
+      "subtime": 2.96,
+      "res": 2,
+      "walltime": 18.0,
+      "profile": "delay_12"
+    },
+    {
+      "id": 1,
+      "subtime": 7.67,
+      "res": 2,
+      "walltime": 24.0,
+      "profile": "delay_16"
+    },
+    {
+      "id": 2,
+      "subtime": 9.32,
+      "res": 1,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 3,
+      "subtime": 9.52,
+      "res": 5,
+      "walltime": 90.0,
+      "profile": "delay_60"
+    },
+    {
+      "id": 4,
+      "subtime": 10.96,
+      "res": 1,
+      "walltime": 8.0,
+      "profile": "delay_5"
+    },
+    {
+      "id": 5,
+      "subtime": 27.61,
+      "res": 2,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 6,
+      "subtime": 29.87,
+      "res": 4,
+      "walltime": 81.0,
+      "profile": "delay_54"
+    },
+    {
+      "id": 7,
+      "subtime": 40.5,
+      "res": 5,
+      "walltime": 56.0,
+      "profile": "ph_37"
+    },
+    {
+      "id": 8,
+      "subtime": 46.42,
+      "res": 1,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 9,
+      "subtime": 46.45,
+      "res": 1,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 10,
+      "subtime": 50.28,
+      "res": 12,
+      "walltime": 156.0,
+      "profile": "delay_104"
+    },
+    {
+      "id": 11,
+      "subtime": 53.71,
+      "res": 12,
+      "walltime": 111.0,
+      "profile": "delay_74"
+    },
+    {
+      "id": 12,
+      "subtime": 56.02,
+      "res": 5,
+      "walltime": 45.0,
+      "profile": "delay_30"
+    },
+    {
+      "id": 13,
+      "subtime": 56.96,
+      "res": 1,
+      "walltime": 23.0,
+      "profile": "delay_15"
+    },
+    {
+      "id": 14,
+      "subtime": 60.03,
+      "res": 6,
+      "walltime": 53.0,
+      "profile": "ph_35"
+    },
+    {
+      "id": 15,
+      "subtime": 60.38,
+      "res": 2,
+      "walltime": 20.0,
+      "profile": "delay_13"
+    },
+    {
+      "id": 16,
+      "subtime": 62.1,
+      "res": 2,
+      "walltime": 23.0,
+      "profile": "delay_15"
+    },
+    {
+      "id": 17,
+      "subtime": 63.91,
+      "res": 5,
+      "walltime": 63.0,
+      "profile": "delay_42"
+    },
+    {
+      "id": 18,
+      "subtime": 73.13,
+      "res": 1,
+      "walltime": 17.0,
+      "profile": "delay_11"
+    },
+    {
+      "id": 19,
+      "subtime": 79.39,
+      "res": 2,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 20,
+      "subtime": 80.31,
+      "res": 2,
+      "walltime": 18.0,
+      "profile": "delay_12"
+    },
+    {
+      "id": 21,
+      "subtime": 82.39,
+      "res": 6,
+      "walltime": 90.0,
+      "profile": "ph_60"
+    },
+    {
+      "id": 22,
+      "subtime": 82.98,
+      "res": 1,
+      "walltime": 11.0,
+      "profile": "delay_7"
+    },
+    {
+      "id": 23,
+      "subtime": 90.3,
+      "res": 4,
+      "walltime": 39.0,
+      "profile": "delay_26"
+    },
+    {
+      "id": 24,
+      "subtime": 96.43,
+      "res": 12,
+      "walltime": 120.0,
+      "profile": "delay_80"
+    },
+    {
+      "id": 25,
+      "subtime": 97.49,
+      "res": 10,
+      "walltime": 111.0,
+      "profile": "delay_74"
+    },
+    {
+      "id": 26,
+      "subtime": 100.55,
+      "res": 2,
+      "walltime": 14.0,
+      "profile": "delay_9"
+    },
+    {
+      "id": 27,
+      "subtime": 103.37,
+      "res": 2,
+      "walltime": 12.0,
+      "profile": "delay_8"
+    },
+    {
+      "id": 28,
+      "subtime": 103.86,
+      "res": 4,
+      "walltime": 74.0,
+      "profile": "ph_49"
+    },
+    {
+      "id": 29,
+      "subtime": 108.18,
+      "res": 6,
+      "walltime": 36.0,
+      "profile": "delay_24"
+    },
+    {
+      "id": 30,
+      "subtime": 110.5,
+      "res": 1,
+      "walltime": 15.0,
+      "profile": "delay_10"
+    },
+    {
+      "id": 31,
+      "subtime": 115.03,
+      "res": 1,
+      "walltime": 18.0,
+      "profile": "delay_12"
+    },
+    {
+      "id": 32,
+      "subtime": 117.29,
+      "res": 2,
+      "walltime": 12.0,
+      "profile": "delay_8"
+    },
+    {
+      "id": 33,
+      "subtime": 117.29,
+      "res": 4,
+      "walltime": 56.0,
+      "profile": "delay_37"
+    },
+    {
+      "id": 34,
+      "subtime": 118.47,
+      "res": 1,
+      "walltime": 18.0,
+      "profile": "delay_12"
+    },
+    {
+      "id": 35,
+      "subtime": 118.53,
+      "res": 2,
+      "walltime": 9.0,
+      "profile": "delay_6"
+    },
+    {
+      "id": 36,
+      "subtime": 126.47,
+      "res": 2,
+      "walltime": 9.0,
+      "profile": "delay_6"
+    },
+    {
+      "id": 37,
+      "subtime": 132.8,
+      "res": 5,
+      "walltime": 56.0,
+      "profile": "delay_37"
+    },
+    {
+      "id": 38,
+      "subtime": 138.14,
+      "res": 2,
+      "walltime": 24.0,
+      "profile": "delay_16"
+    },
+    {
+      "id": 39,
+      "subtime": 139.24,
+      "res": 1,
+      "walltime": 14.0,
+      "profile": "delay_9"
+    }
+  ],
+  "profiles": {
+    "delay_12": {
+      "type": "delay",
+      "delay": 12.0
+    },
+    "delay_16": {
+      "type": "delay",
+      "delay": 16.0
+    },
+    "delay_7": {
+      "type": "delay",
+      "delay": 7.0
+    },
+    "delay_60": {
+      "type": "delay",
+      "delay": 60.0
+    },
+    "delay_5": {
+      "type": "delay",
+      "delay": 5.0
+    },
+    "delay_54": {
+      "type": "delay",
+      "delay": 54.0
+    },
+    "ph_37": {
+      "type": "parallel_homogeneous",
+      "cpu": 37000000000.0,
+      "com": 0
+    },
+    "delay_104": {
+      "type": "delay",
+      "delay": 104.0
+    },
+    "delay_74": {
+      "type": "delay",
+      "delay": 74.0
+    },
+    "delay_30": {
+      "type": "delay",
+      "delay": 30.0
+    },
+    "delay_15": {
+      "type": "delay",
+      "delay": 15.0
+    },
+    "ph_35": {
+      "type": "parallel_homogeneous",
+      "cpu": 35000000000.0,
+      "com": 0
+    },
+    "delay_13": {
+      "type": "delay",
+      "delay": 13.0
+    },
+    "delay_42": {
+      "type": "delay",
+      "delay": 42.0
+    },
+    "delay_11": {
+      "type": "delay",
+      "delay": 11.0
+    },
+    "ph_60": {
+      "type": "parallel_homogeneous",
+      "cpu": 60000000000.0,
+      "com": 0
+    },
+    "delay_26": {
+      "type": "delay",
+      "delay": 26.0
+    },
+    "delay_80": {
+      "type": "delay",
+      "delay": 80.0
+    },
+    "delay_9": {
+      "type": "delay",
+      "delay": 9.0
+    },
+    "delay_8": {
+      "type": "delay",
+      "delay": 8.0
+    },
+    "ph_49": {
+      "type": "parallel_homogeneous",
+      "cpu": 49000000000.0,
+      "com": 0
+    },
+    "delay_24": {
+      "type": "delay",
+      "delay": 24.0
+    },
+    "delay_10": {
+      "type": "delay",
+      "delay": 10.0
+    },
+    "delay_37": {
+      "type": "delay",
+      "delay": 37.0
+    },
+    "delay_6": {
+      "type": "delay",
+      "delay": 6.0
+    }
+  }
+}

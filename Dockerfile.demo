@@ -29,11 +29,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 COPY --from=frontend /build/dist ./frontend_dist
 
-# Pruned dataset built by scripts/build-demo-data.py. simulation_dir values in
-# the database are absolute container paths (/app/storage/experiments/<id>), so
-# the experiments must land exactly here.
+# PyBatSim runtime manifest. It lives outside backend/ and the compose stack
+# bind-mounts it, so without this COPY the /system/runtime endpoint reports the
+# manifest as unreadable and the Strategies page shows a warning banner.
+COPY docker/pybatsim-extended/runtime-info.json ./docker/pybatsim-extended/runtime-info.json
+
+# Pruned dataset built by scripts/build-demo-data.py. File paths in the database
+# are absolute container paths (/app/storage/...), so these must land exactly here.
 COPY demo-data/batsim.db ./batsim.db
 COPY demo-data/experiments ./storage/experiments
+COPY demo-data/strategies ./storage/strategies
+COPY demo-data/workloads ./storage/workloads
+COPY demo-data/platforms ./storage/platforms
 
 ENV DEMO_MODE=true \
     FRONTEND_DIST_PATH=./frontend_dist \

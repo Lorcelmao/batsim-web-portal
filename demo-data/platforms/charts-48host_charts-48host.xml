@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
+<!-- Charts showcase platform: 48-node homogeneous cluster + master_host.
+     Same proven structure as cluster288-HCMUT / demo-16host. 48 rows keeps the
+     host-utilization heatmap fully labeled without touching the host slider,
+     while still being large enough for visible load imbalance. -->
+<platform version="4">
+  <AS id="AS0" routing="Full">
+    <cluster id="charts_cluster" prefix="node-" suffix="" radical="0-47" speed="1Gf" bw="125GBps" lat="0" router_id="router1"/>
+
+    <AS id="AS1" routing="Full">
+      <host id="master_host" speed="1Gf"/>
+    </AS>
+
+    <link id="backbone" bandwidth="125GBps" latency="0" sharing_policy="FATPIPE"/>
+
+    <ASroute src="charts_cluster" dst="AS1" gw_src="router1" gw_dst="master_host">
+      <link_ctn id="backbone"/>
+    </ASroute>
+  </AS>
+</platform>
