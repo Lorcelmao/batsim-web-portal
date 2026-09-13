@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // Imported rather than referenced by URL: a literal "/src/assets/..." path is
 // only served by the Vite dev server, so it 404s in any production build.
 import batsimLogo from "../assets/batweb-logo.png";
+import { IS_DEMO } from "../config/demo";
 import {
   Box,
   Grid,
@@ -179,10 +180,45 @@ const DashboardPage: React.FC = () => {
             variant="body1"
             sx={{ opacity: 0.9, mb: 3, fontSize: 16, maxWidth: 600 }}
           >
-            Manage, run, and analyze your BatSim experiments with ease. Upload
-            workloads, platforms, and strategies, create scenarios, launch
-            experiments, and view results—all in one place.
+            {IS_DEMO
+              ? "Browse completed HPC scheduling simulations: job timelines, host utilization heatmaps, waiting time distributions and side by side comparisons. Uploading and running experiments are disabled on this public demo."
+              : "Manage, run, and analyze your BatSim experiments with ease. Upload workloads, platforms, and strategies, create scenarios, launch experiments, and view results, all in one place."}
           </Typography>
+          {/* The standard actions are all writes, which the demo refuses. Point
+              visitors at what this deployment can actually show instead. */}
+          {IS_DEMO ? (
+          <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              href="/results"
+              size="large"
+              sx={{ fontWeight: 900, borderRadius: 8, py: 1.5 }}
+            >
+              View Results
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              href="/compare"
+              size="large"
+              sx={{ fontWeight: 700, borderRadius: 8, borderWidth: 2 }}
+            >
+              Compare Experiments
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              href="/docs"
+              target="_blank"
+              rel="noopener"
+              size="large"
+              sx={{ fontWeight: 700, borderRadius: 8, borderWidth: 2 }}
+            >
+              API Docs
+            </Button>
+          </Stack>
+          ) : (
           <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
             <Button
               variant="contained"
@@ -230,6 +266,7 @@ const DashboardPage: React.FC = () => {
               Create Scenario
             </Button>
           </Stack>
+          )}
         </Box>
         <Box
           sx={{

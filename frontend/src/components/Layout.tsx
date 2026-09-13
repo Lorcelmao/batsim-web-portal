@@ -25,6 +25,7 @@ import {
 } from "@mui/material";
 import {
   Menu as MenuIcon,
+  Api,
   Dashboard,
   Storage,
   Computer,
@@ -270,6 +271,21 @@ const Layout: React.FC = () => {
               <Typography variant="body2">
                 {user?.username} ({user?.role})
               </Typography>
+            </MenuItem>
+            <Divider />
+            {/* Opens the generated OpenAPI page. Present in every build:
+                anyone scripting against this portal needs it findable. */}
+            <MenuItem
+              component="a"
+              href="/docs"
+              target="_blank"
+              rel="noopener"
+              onClick={handleMenuClose}
+            >
+              <ListItemIcon>
+                <Api fontSize="small" />
+              </ListItemIcon>
+              API Docs
             </MenuItem>
             <Divider />
             <MenuItem onClick={handleLogout}>
