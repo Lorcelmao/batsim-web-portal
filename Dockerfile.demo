@@ -16,6 +16,9 @@ WORKDIR /build
 COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm ci
 COPY frontend/ ./
+# Compiles the demo-only UI (one-click sign in, read-only badge) into this
+# build. A normal build leaves all of it out.
+ENV VITE_DEMO_MODE=true
 RUN npm run build
 
 # --- Stage 2: API + compiled SPA ---------------------------------------------

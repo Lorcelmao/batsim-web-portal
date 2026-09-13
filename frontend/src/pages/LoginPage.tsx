@@ -9,10 +9,12 @@ import {
   Typography,
   Alert,
   Link,
+  Divider,
   CircularProgress,
 } from "@mui/material";
-import { LockOutlined } from "@mui/icons-material";
+import { LockOutlined, PlayArrow } from "@mui/icons-material";
 import useAuthStore from "../store/authStore";
+import { IS_DEMO, DEMO_CREDENTIALS, DEMO_BLURB } from "../config/demo";
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -64,6 +66,15 @@ const LoginPage: React.FC = () => {
       if (result.success) {
         navigate("/");
       }
+    }
+  };
+
+  // One click into the demo. Recruiters arrive with no context and no reason
+  // to guess credentials, so the published read-only account signs itself in.
+  const handleDemoSignIn = async () => {
+    const result = await login({ ...DEMO_CREDENTIALS });
+    if (result.success) {
+      navigate("/");
     }
   };
 
@@ -119,12 +130,41 @@ const LoginPage: React.FC = () => {
             variant="body2"
             color="text.secondary"
             align="center"
-            sx={{ mb: 3 }}
+            sx={{ mb: IS_DEMO ? 2 : 3 }}
           >
-            {isRegistering
-              ? "Create your account to access BatSim Portal"
-              : "Sign in to access BatSim Portal"}
+            {IS_DEMO
+              ? DEMO_BLURB
+              : isRegistering
+                ? "Create your account to access BatSim Portal"
+                : "Sign in to access BatSim Portal"}
           </Typography>
+
+          {IS_DEMO && (
+            <Box sx={{ width: "100%", mb: 3 }}>
+              <Button
+                fullWidth
+                variant="contained"
+                size="large"
+                startIcon={<PlayArrow />}
+                onClick={handleDemoSignIn}
+                disabled={isLoading}
+              >
+                Explore the demo
+              </Button>
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                align="center"
+                component="p"
+                sx={{ mt: 1.5 }}
+              >
+                Signs you in as the shared read-only account. To use the form
+                instead: <strong>{DEMO_CREDENTIALS.username}</strong> /{" "}
+                <strong>{DEMO_CREDENTIALS.password}</strong>
+              </Typography>
+              <Divider sx={{ mt: 2 }}>or sign in manually</Divider>
+            </Box>
+          )}
 
           {sessionExpired && !error && (
             <Alert severity="info" sx={{ width: "100%", mb: 2 }}>
@@ -222,19 +262,23 @@ const LoginPage: React.FC = () => {
               )}
             </Button>
 
-            <Box sx={{ textAlign: "center" }}>
-              <Link
-                component="button"
-                variant="body2"
-                onClick={handleToggleMode}
-                disabled={isLoading}
-                sx={{ textDecoration: "none" }}
-              >
-                {isRegistering
-                  ? "Already have an account? Sign in"
-                  : "Don't have an account? Register"}
-              </Link>
-            </Box>
+            {/* Registration is refused in demo mode, so offering it would
+                only lead to a 403. */}
+            {!IS_DEMO && (
+              <Box sx={{ textAlign: "center" }}>
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={handleToggleMode}
+                  disabled={isLoading}
+                  sx={{ textDecoration: "none" }}
+                >
+                  {isRegistering
+                    ? "Already have an account? Sign in"
+                    : "Don't have an account? Register"}
+                </Link>
+              </Box>
+            )}
           </Box>
         </Paper>
       </Box>

@@ -4,9 +4,11 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 // Imported rather than referenced by URL: a literal "/src/assets/..." path is
 // only served by the Vite dev server, so it 404s in any production build.
 import titleLogoWhite from "../assets/batweb-title-logo-white.png";
+import { IS_DEMO } from "../config/demo";
 import {
   AppBar,
   Box,
+  Chip,
   CssBaseline,
   Drawer,
   IconButton,
@@ -196,6 +198,18 @@ const Layout: React.FC = () => {
             {menuItems.find((item) => item.path === location.pathname)?.text ||
               "Dashboard"}
           </Typography>
+
+          {/* Keeps the read-only context visible after sign in, so a refused
+              write reads as intended rather than broken. */}
+          {IS_DEMO && (
+            <Chip
+              label="Read-only demo"
+              size="small"
+              color="warning"
+              variant="outlined"
+              sx={{ mr: 2, fontWeight: 600 }}
+            />
+          )}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
