@@ -417,10 +417,10 @@ export const workloadsAPI = {
   ): Promise<AxiosResponse<Workload>> => api.put(`/workloads/${id}`, data),
   delete: (id: number): Promise<AxiosResponse<{ message: string }>> =>
     api.delete(`/workloads/${id}`),
-  download: (
-    id: number
-  ): Promise<AxiosResponse<{ file_path: string; file_name: string }>> =>
-    api.get(`/workloads/${id}/download`),
+  // Blob: the endpoint streams the file, and the auth header must ride along,
+  // so this cannot be a plain link.
+  download: (id: number): Promise<AxiosResponse<Blob>> =>
+    api.get(`/workloads/${id}/download`, { responseType: "blob" }),
 };
 
 // Platforms API
@@ -445,10 +445,10 @@ export const platformsAPI = {
     }),
   delete: (id: number): Promise<AxiosResponse<{ message: string }>> =>
     api.delete(`/platforms/${id}`),
-  download: (
-    id: number
-  ): Promise<AxiosResponse<{ file_path: string; file_name: string }>> =>
-    api.get(`/platforms/${id}/download`),
+  // Blob: the endpoint streams the file, and the auth header must ride along,
+  // so this cannot be a plain link.
+  download: (id: number): Promise<AxiosResponse<Blob>> =>
+    api.get(`/platforms/${id}/download`, { responseType: "blob" }),
 };
 
 // Scenarios API
@@ -489,10 +489,10 @@ export const strategiesAPI = {
     }),
   delete: (id: number): Promise<AxiosResponse<{ message: string }>> =>
     api.delete(`/strategies/${id}`),
-  download: (
-    id: number
-  ): Promise<AxiosResponse<{ file_path: string; file_name: string }>> =>
-    api.get(`/strategies/${id}/download`),
+  // Blob: the endpoint streams the file, and the auth header must ride along,
+  // so this cannot be a plain link.
+  download: (id: number): Promise<AxiosResponse<Blob>> =>
+    api.get(`/strategies/${id}/download`, { responseType: "blob" }),
   getContent: (
     id: number
   ): Promise<
@@ -574,8 +574,12 @@ export const experimentsAPI = {
       live: boolean;
     }>
   > => api.get(`/experiments/${id}/logs/streams`),
-  downloadLogStreamUrl: (id: number, stream: string): string =>
-    `${API_BASE_URL}/experiments/${id}/logs/streams/${stream}/download`,
+  // Blob rather than a URL: the endpoint requires auth, and a plain <a href>
+  // sends no Authorization header, so a link download returns 401.
+  downloadLogStream: (id: number, stream: string): Promise<AxiosResponse<Blob>> =>
+    api.get(`/experiments/${id}/logs/streams/${stream}/download`, {
+      responseType: "blob",
+    }),
   getProgress: (
     id: number,
     history: boolean = false,

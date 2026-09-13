@@ -41,6 +41,7 @@ import {
   Platform,
   ValidationResponse,
 } from "../services/api";
+import { downloadBlob, filenameFromContentDisposition } from "../utils/download-file";
 import ValidationErrorPanel from "../components/ValidationErrorPanel";
 import FileDropzone from "../components/common/file-dropzone";
 import { formatRelativeTime } from "../utils/format-relative-time";
@@ -221,9 +222,13 @@ const PlatformsPage: React.FC = () => {
     if (!selectedPlatform) return;
     try {
       const res = await platformsAPI.download(selectedPlatform.id);
-      const { file_path, file_name } = res.data;
-      // For demo: just open the file path (in real app, use a proper download endpoint)
-      window.open(file_path, "_blank");
+      // The endpoint streams the file; take the name from its
+      // Content-Disposition header, falling back to the record's name.
+      const filename = filenameFromContentDisposition(
+        res.headers["content-disposition"],
+        selectedPlatform.name,
+      );
+      downloadBlob(res.data, filename);
     } catch {
       setSnackbar({
         open: true,

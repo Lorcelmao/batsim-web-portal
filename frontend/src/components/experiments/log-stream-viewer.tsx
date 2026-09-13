@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { Refresh, Download, KeyboardArrowDown } from "@mui/icons-material";
 import { experimentsAPI } from "../../services/api";
+import { downloadBlob } from "../../utils/download-file";
 import { renderLine } from "./log-line-renderer";
 
 type StreamKey = "batsim_stdout" | "batsim_stderr" | "pybatsim_stdout" | "pybatsim_stderr";
@@ -118,6 +119,13 @@ export const LogStreamViewer: React.FC<LogStreamViewerProps> = ({
   };
 
   const activeKey = STREAM_KEYS[activeTab];
+
+  // Fetched through the API client so the auth header is attached; a plain
+  // <a download> link would hit the endpoint unauthenticated and get a 401.
+  const handleDownload = useCallback(async () => {
+    const res = await experimentsAPI.downloadLogStream(experimentId, activeKey);
+    downloadBlob(res.data, `experiment-${experimentId}-${activeKey}.txt`, "text/plain");
+  }, [experimentId, activeKey]);
   const activeStream = streams?.[activeKey];
 
   const renderedLines = useMemo(() => {
@@ -205,9 +213,7 @@ export const LogStreamViewer: React.FC<LogStreamViewerProps> = ({
           size="small"
           startIcon={<Download />}
           variant="outlined"
-          component="a"
-          href={experimentsAPI.downloadLogStreamUrl(experimentId, activeKey)}
-          download
+          onClick={handleDownload}
         >
           Download .txt
         </Button>
