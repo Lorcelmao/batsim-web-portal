@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, Response, UploadFile, File, Form
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session, load_only
 import os
 import shutil
@@ -291,10 +292,14 @@ def download_workload(
     if not os.path.exists(workload.file_path):
         raise HTTPException(status_code=404, detail="Workload file not found")
 
-    return {
-        "file_path": workload.file_path,
-        "file_name": os.path.basename(workload.file_path),
-    }
+    # Return the file itself rather than its server-side path. The previous
+    # JSON {file_path, file_name} response left the client with an absolute
+    # container path it could not fetch, and leaked the server layout.
+    return FileResponse(
+        path=workload.file_path,
+        filename=os.path.basename(workload.file_path),
+        media_type="application/json",
+    )
 
 
 @router.put("/{workload_id}/file", response_model=WorkloadSchema)

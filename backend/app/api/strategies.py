@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, Response, UploadFile, File, Form
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 import os
 import shutil
@@ -273,10 +274,14 @@ def download_strategy(
         raise HTTPException(status_code=404, detail="Strategy not found")
     if not os.path.exists(strategy.file_path):
         raise HTTPException(status_code=404, detail="Strategy file not found")
-    return {
-        "file_path": strategy.file_path,
-        "file_name": os.path.basename(strategy.file_path),
-    }
+    # Return the file itself rather than its server-side path. The previous
+    # JSON {file_path, file_name} response left the client with an absolute
+    # container path it could not fetch, and leaked the server layout.
+    return FileResponse(
+        path=strategy.file_path,
+        filename=os.path.basename(strategy.file_path),
+        media_type="text/x-python",
+    )
 
 
 CONTENT_PREVIEW_LIMIT = 100 * 1024  # 100 KB

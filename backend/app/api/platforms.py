@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, Response, UploadFile, File, Form
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 import os
 import shutil
@@ -248,7 +249,11 @@ def download_platform(
         raise HTTPException(status_code=404, detail="Platform not found")
     if not os.path.exists(platform.file_path):
         raise HTTPException(status_code=404, detail="Platform file not found")
-    return {
-        "file_path": platform.file_path,
-        "file_name": os.path.basename(platform.file_path),
-    }
+    # Return the file itself rather than its server-side path. The previous
+    # JSON {file_path, file_name} response left the client with an absolute
+    # container path it could not fetch, and leaked the server layout.
+    return FileResponse(
+        path=platform.file_path,
+        filename=os.path.basename(platform.file_path),
+        media_type="application/xml",
+    )
